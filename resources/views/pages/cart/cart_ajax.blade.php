@@ -83,6 +83,7 @@
 							</td>
 
 							<td>
+								{{-- Nếu người dùng có login vào  --}}
 								@if(Session::get('customer_id'))
 	                          	<a class="btn btn-default check_out" href="{{url('/checkout')}}">Đặt hàng</a>
 	                          	@else 

@@ -142,14 +142,6 @@
 										
 										<td colspan="2">
 										<li>Tổng tiền :<span>{{number_format($total,0,',','.')}}đ</span></li>
-										
-
-										@if(Session::get('fee'))
-										<li>	
-											
-											<?php $total_after_fee = $total + Session::get('fee'); ?>
-										@endif 
-										
 									</td>
 									</tr>
 									@else 
