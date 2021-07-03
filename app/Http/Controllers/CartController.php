@@ -162,42 +162,6 @@ class CartController extends Controller
             return redirect()->back()->with('message','Xóa hết giỏ thành công');
         }
     }
-    public function save_cart(Request $request){
-        $productId = $request->productid_hidden;//lấy product id khi người dùng click thêm giỏ hàng
-        $quantity = $request->qty;//tương tự product id
-        $product_info = DB::table('tbl_product')->where('product_id',$productId)->first(); //lấy product_id tỏng db tương ứng vs product_id người dùng click
-
-    
-        
-        $data['id'] = $product_info->product_id;
-        $data['qty'] = $quantity;
-        $data['name'] = $product_info->product_name;
-        $data['price'] = $product_info->product_price;
-        $data['weight'] = $product_info->product_price;//không có vẫn khai báo vì thiếu trường sẽ bị lỗi
-        $data['options']['image'] = $product_info->product_image;
-        Cart::add($data);//add data vừa lấy được đưa vào cart(cái này của bumbummen99)
-        return Redirect::to('/show-cart');
-    }
-    public function show_cart(Request $request){
-        //seo 
-        $meta_desc = "Giỏ hàng của bạn"; 
-        $meta_keywords = "Giỏ hàng";
-        $meta_title = "Giỏ hàng";
-        $url_canonical = $request->url();
-        //--seo
-        $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get(); 
-        $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get(); 
-        return view('pages.cart.show_cart')->with('category',$cate_product)->with('brand',$brand_product)->with('meta_desc',$meta_desc)->with('meta_keywords',$meta_keywords)->with('meta_title',$meta_title)->with('url_canonical',$url_canonical);
-    }
-    public function delete_to_cart($rowId){
-        Cart::update($rowId,0);
-        return Redirect::to('/show-cart');
-    }
-    public function update_cart_quantity(Request $request){
-        $rowId = $request->rowId_cart;
-        $qty = $request->cart_quantity;
-        Cart::update($rowId,$qty);
-        return Redirect::to('/show-cart');
-    }
+   
     
 }

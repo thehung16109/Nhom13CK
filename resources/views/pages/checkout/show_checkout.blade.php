@@ -56,39 +56,7 @@
 									</div>
 									<input type="button" value="Xác nhận đơn hàng" name="send_order" class="btn btn-primary btn-sm send_order">
 								</form>
-								<form>
-                                    @csrf 
-                             
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Chọn thành phố</label>
-                                      <select name="city" id="city" class="form-control input-sm m-bot15 choose city">
-                                    
-                                            <option value="">--Chọn tỉnh thành phố--</option>
-                                        @foreach($city as $key => $ci)
-                                            <option value="{{$ci->matp}}">{{$ci->name_city}}</option>
-                                        @endforeach
-                                            
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Chọn quận huyện</label>
-                                      <select name="province" id="province" class="form-control input-sm m-bot15 province choose">
-                                            <option value="">--Chọn quận huyện--</option>
-                                           
-                                    </select>
-                                </div>
-                                  <div class="form-group">
-                                    <label for="exampleInputPassword1">Chọn xã phường</label>
-                                      <select name="wards" id="wards" class="form-control input-sm m-bot15 wards">
-                                            <option value="">--Chọn xã phường--</option>   
-                                    </select>
-                                </div>
-                               
-                               
-                              	<input type="button" value="Tính phí vận chuyển" name="calculate_order" class="btn btn-primary btn-sm calculate_delivery">
-
-
-                                </form>
+								
 
 							</div>
 							
@@ -112,8 +80,8 @@
 								<thead>
 									<tr class="cart_menu">
 										<td class="image">Hình ảnh</td>
-										<td class="description">Tên sản phẩm</td>
-										<td class="price">Giá sản phẩm</td>
+										<td class="description">Tên Voucher</td>
+										<td class="price">Giá</td>
 										<td class="quantity">Số lượng</td>
 										<td class="total">Thành tiền</td>
 										<td></td>
@@ -174,68 +142,13 @@
 										
 										<td colspan="2">
 										<li>Tổng tiền :<span>{{number_format($total,0,',','.')}}đ</span></li>
-										@if(Session::get('coupon'))
-										<li>
-											
-												@foreach(Session::get('coupon') as $key => $cou)
-													@if($cou['coupon_condition']==1)
-														Mã giảm : {{$cou['coupon_number']}} %
-														<p>
-															@php 
-															$total_coupon = ($total*$cou['coupon_number'])/100;
-														
-															@endphp
-														</p>
-														<p>
-														@php 
-															$total_after_coupon = $total-$total_coupon;
-														@endphp
-														</p>
-													@elseif($cou['coupon_condition']==2)
-														Mã giảm : {{number_format($cou['coupon_number'],0,',','.')}} k
-														<p>
-															@php 
-															$total_coupon = $total - $cou['coupon_number'];
-														
-															@endphp
-														</p>
-														@php 
-															$total_after_coupon = $total_coupon;
-														@endphp
-													@endif
-												@endforeach
-											
-											
-
-										</li>
-										@endif
+										
 
 										@if(Session::get('fee'))
 										<li>	
-											<a class="cart_quantity_delete" href="{{url('/del-fee')}}"><i class="fa fa-times"></i></a>
-
-											Phí vận chuyển <span>{{number_format(Session::get('fee'),0,',','.')}}đ</span></li> 
+											
 											<?php $total_after_fee = $total + Session::get('fee'); ?>
 										@endif 
-										<li>Tổng còn:
-										@php 
-											if(Session::get('fee') && !Session::get('coupon')){
-												$total_after = $total_after_fee;
-												echo number_format($total_after,0,',','.').'đ';
-											}elseif(!Session::get('fee') && Session::get('coupon')){
-												$total_after = $total_after_coupon;
-												echo number_format($total_after,0,',','.').'đ';
-											}elseif(Session::get('fee') && Session::get('coupon')){
-												$total_after = $total_after_coupon;
-												$total_after = $total_after + Session::get('fee');
-												echo number_format($total_after,0,',','.').'đ';
-											}elseif(!Session::get('fee') && !Session::get('coupon')){
-												$total_after = $total;
-												echo number_format($total_after,0,',','.').'đ';
-											}
-
-										@endphp
-										</li>
 										
 									</td>
 									</tr>
@@ -249,34 +162,12 @@
 									</tr>
 									@endif
 								</tbody>
-
-								
-
 							</form>
-								@if(Session::get('cart'))
-								<tr><td>
-
-										<form method="POST" action="{{url('/check-coupon')}}">
-											@csrf
-												<input type="text" class="form-control" name="coupon" placeholder="Nhập mã giảm giá"><br>
-				                          		<input type="submit" class="btn btn-default check_coupon" name="check_coupon" value="Tính mã giảm giá">
-				                          	
-			                          		</form>
-			                          	</td>
-								</tr>
-								@endif
-
 							</table>
-
 						</div>
-					</div>
-									
+					</div>				
 				</div>
 			</div>
-		
-
-			
-			
 		</div>
 	</section> <!--/#cart_items-->
 

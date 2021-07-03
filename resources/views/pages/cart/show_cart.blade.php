@@ -49,7 +49,7 @@
 									</form>
 								</div>
 							</td>
-							
+
 							<td class="cart_total">
 								<p class="cart_total_price">
 									

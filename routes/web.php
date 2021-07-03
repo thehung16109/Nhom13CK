@@ -105,11 +105,11 @@ Route::post('/insert-coupon-code','CouponController@insert_coupon_code');
 //Cart
 Route::post('/update-cart-quantity','CartController@update_cart_quantity');
 Route::post('/update-cart','CartController@update_cart');
-Route::post('/save-cart','CartController@save_cart');
+// Route::post('/save-cart','CartController@save_cart');
 Route::post('/add-cart-ajax','CartController@add_cart_ajax');
-Route::get('/show-cart','CartController@show_cart');
+// Route::get('/show-cart','CartController@show_cart');
 Route::get('/gio-hang','CartController@gio_hang');
-Route::get('/delete-to-cart/{rowId}','CartController@delete_to_cart');
+// Route::get('/delete-to-cart/{rowId}','CartController@delete_to_cart');
 Route::get('/del-product/{session_id}','CartController@delete_product');
 Route::get('/del-all-product','CartController@delete_all_product');
 
