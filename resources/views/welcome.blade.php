@@ -14,7 +14,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- wowJS -->
-    <link rel="stylesheet" href="../Others/lib/WOW-master/css/libs/animate.css">
+    <link rel="stylesheet" href="{{asset('/Others/lib/WOW-master/css/libs/animate.css')}}">
 
     <!-- Main css -->
     <link rel="stylesheet" href="{{asset('/client/CSS/home.css')}}">
@@ -88,7 +88,7 @@
         </div>
     </section>
 
-    <section class="carousel mt-5">
+    {{-- <section class="carousel mt-5">
         <div class="container px-0">
             <div class="row container px-0 mx-0">
                 <div class="col-md-6 col-lg-6 col-xl-6 carousel-left item p-0 ">
@@ -420,7 +420,7 @@
             </div>
         </div>
         </div>
-    </footer>
+    </footer> --}}
 
     <button onclick="topFunction()" id="myBtn"><i class="fa fa-arrow-up"></i></button>
 
@@ -434,7 +434,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <!-- wowjs -->
-    <script src="../Others/lib/WOW-master/wow/wow.min.js"></script>
+    <script src="{{asset('/Others/lib/WOW-master/wow/wow.min.js')}}"></script>
     <script>
         wow = new WOW(
             {
@@ -444,7 +444,8 @@
         )
         wow.init();
     </script>
-    <script src="../JS/home.js"></script>
+    <script src="{{asset('/client/JS/home.js')}}"></script>
+    <script src="{{asset('/client/JS/homestay.js')}}"></script>
 </body>
 
 </html>
