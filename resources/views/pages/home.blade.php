@@ -2,7 +2,7 @@
 @section('content')
 <div class="features_items"><!--features_items-->
        
-                        <h2 class="title text-center">Sản phẩm mới nhất</h2>
+                        <h2 class="title text-center">Sản phẩm này cũ rồi</h2>
                         
                         @foreach($all_product as $key => $product)
                         <div class="col-sm-4">
