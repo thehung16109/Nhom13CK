@@ -7,6 +7,7 @@ use App\Slider;
 use Session;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 use DB;
 class SliderController extends Controller
 {
