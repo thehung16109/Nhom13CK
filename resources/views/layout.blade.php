@@ -48,34 +48,6 @@
 <body>
 
     <header id="header"><!--header-->
-        <div class="header_top"><!--header_top-->
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <div class="contactinfo">
-                            <ul class="nav nav-pills">
-                                <li><a href="#"><i class="fa fa-phone"></i><span style="color:red"> Hotline:</span> 0932023992 - Mr.Hiếu Tấn | 01694494813 - Mr.Lan Hương</a></li>
-                                <li><a href="#"><i class="fa fa-envelope"></i> shoplinhkien@webextrasite.com</a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Mua hàng : 8:00am - 21h30pm</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="social-icons pull-right">
-                     
-                            <ul class="nav navbar-nav">
-                                @foreach($icons as $key => $ico)
-                                <li><a target="_blank" title="{{$ico->name}}" href="{{$ico->link}}">
-                                    <img alt="{{$ico->name}}" style="margin:4px" height="32px" width="32px" src="{{asset('/uploads/icons/'.$ico->image)}}"></a>
-                                </a></li>
-                                @endforeach
-                                
-                            </ul> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!--/header_top-->
         
         <div class="header-middle"><!--header-middle-->
             <div class="container">
@@ -84,29 +56,8 @@
                         <div class="logo pull-left">
                             <a href="index.html"><img src="{{('/frontend/images/home/logo.png')}}" alt="" /></a>
                         </div>
-                        <div class="btn-group pull-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                    @lang('lang.languge')
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{url('lang/vi')}}">Tiếng Việt</a></li>
-                                    <li><a href="{{url('lang/en')}}">Tiếng Anh</a></li>
-                                    <li><a href="{{url('lang/cn')}}">Tiếng Trung</a></li>
-                                </ul>
-                            </div>
-                            
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                    DOLLAR
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Canadian Dollar</a></li>
-                                    <li><a href="#">Pound</a></li>
-                                </ul>
-                            </div>
+                        <div class="btn-group">
+                            <img src="{{asset('/frontend/images/logo.png')}}" alt="">
                         </div>
                     </div>
                     <div class="col-sm-8">
@@ -195,10 +146,10 @@
             </div>
         </div><!--/header-middle-->
     
-        <div class="header-bottom" id="navbar"><!--header-bottom-->
+        <div class="header-bottom container" id="navbar"><!--header-bottom-->
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-7">
+                    <div class="col-sm-8">
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                 <span class="sr-only">Toggle navigation</span>
@@ -211,7 +162,7 @@
                             <ul class="nav navbar-nav collapse navbar-collapse">
 
                                 <li><a href="{{URL::to('/trang-chu')}}" class="active">@lang('lang.home')</a></li>
-                                <li class="dropdown"><a href="#">{{__('lang.product')}}<i class="fa fa-angle-down"></i></a>
+                                <li class="dropdown"><a href="#">Voucher Tại<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         @foreach($category as $key => $cate)
                                             @if($cate->category_parent==0)
@@ -230,7 +181,7 @@
                                     </ul>
                                 </li> 
 
-                                <li class="dropdown"><a href="#">{{__('lang.blogs')}}<i class="fa fa-angle-down"></i></a>
+                                <li class="dropdown"><a href="#">Review<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                        @foreach($category_post as $key => $danhmucbaiviet)
                                         <li><a href="{{URL::to('/danh-muc-bai-viet/'.$danhmucbaiviet->cate_post_slug)}}">{{$danhmucbaiviet->cate_post_name}}</a></li>
@@ -246,12 +197,11 @@
                                 </a>
                                   
                                 </li>
-                                <li><a href="{{URL::to('/video-shop')}}">{{__('lang.video')}}</a></li>
                                 <li><a href="{{URL::to('/lien-he')}}">{{__('lang.contact')}}</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-sm-4">
                         <form action="{{URL::to('/tim-kiem')}}" autocomplete="off" method="POST">
                             {{csrf_field()}}
                         <div class="search_box">
@@ -259,7 +209,7 @@
                             <input type="text" style="width: 60%;margin-right: 5px" name="keywords_submit" id="keywords" placeholder="Tìm kiếm sản phẩm"/>
                            <div id="search_ajax"></div>
 
-                           <input type="submit" style="margin-top:0;color:#666" name="search_items" class="btn btn-primary btn-sm" value="Tìm kiếm">
+                           <input type="submit" style="margin-top:0;color:#e9ecef ;width:70px;border-radius:5px;" name="search_items" class="btn btn-primary btn-sm" value="Tìm kiếm">
 
                         </div>
                         </form>
