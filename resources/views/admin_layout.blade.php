@@ -9,25 +9,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- bootstrap-css -->
 <link rel="stylesheet" href="{{asset('/backend/css/bootstrap.min.css')}}" >
 
+<meta name="csrf-token" content="{{csrf_token()}}">
 <!-- //bootstrap-css -->
 <!-- Custom CSS -->
 <link href="{{asset('/backend/css/style.css')}}" rel='stylesheet' type='text/css' />
 <link href="{{asset('/backend/css/style-responsive.css')}}" rel="stylesheet"/>
 <link href="{{asset('/backend/css/jquery.dataTables.min.css')}}" rel="stylesheet"/>
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <!-- font CSS -->
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <!-- font-awesome icons -->
 <link rel="stylesheet" href="{{asset('/backend/css/font.css')}}" type="text/css"/>
 <link href="{{asset('/backend/css/font-awesome.css')}}" rel="stylesheet"> 
-<link rel="stylesheet" href="{{asset('/backend/css/morris.css')}}" type="text/css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 
+
+<link rel="stylesheet" href="{{asset('/backend/css/bootstrap-tagsinput.css')}}" type="text/css"/>
+
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" type="text/css"/>
+
+<link rel="icon" href="{{asset('/frontend/images/logo-mail.png')}}" type="image/gif" sizes="32x32">
 <!-- calendar -->
-<link rel="stylesheet" href="{{asset('/backend/css/monthly.css')}}">
+
+
 <!-- //calendar -->
 <!-- //font-awesome icons -->
 <script src="{{asset('/backend/js/jquery2.0.3.min.js')}}"></script>
-<script src="{{asset('/backend/js/raphael-min.js')}}"></script>
-<script src="{{asset('/backend/js/morris.js')}}"></script>
+
+<script src="{{asset('/backend/js/bootstrap-tagsinput.js')}}"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+<script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 </head>
 <body>
@@ -37,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--logo start-->
 <div class="brand">
     <a target="_blank" href="{{url('/')}}" class="logo">
-        Shop 
+       Shop
     </a>
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars"></div>
@@ -56,13 +75,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="{{('/backend/images/2.png')}}">
                 <span class="username">
-                	<?php
-					$name = Session::get('admin_name');
-					if($name){
-						echo $name;
-						
-					}
-					?>
+                	
+                    <?php
+                    if(Session::get('login_normal')){
+                        
+                        $name = Session::get('admin_name');
+                    }else{
+                        $name = Auth::user()->admin_name;
+                    }
+                   
+                    if($name){
+                        echo $name;   
+                    }
+                    ?>
 
                 </span>
                 <b class="caret"></b>
@@ -70,7 +95,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <ul class="dropdown-menu extended logout">
                 <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                <li><a href="{{URL::to('/logout')}}"><i class="fa fa-key"></i>Đăng xuất</a></li>
+                <li><a href="{{URL::to('/logout-auth')}}"><i class="fa fa-key"></i>Đăng xuất</a></li>
             </ul>
         </li>
         <!-- user login dropdown end -->
@@ -90,6 +115,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a class="active" href="{{URL::to('/dashboard')}}">
                         <i class="fa fa-dashboard"></i>
                         <span>Tổng quan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{URL::to('read_data')}}">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Google drive</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{URL::to('/information')}}">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Thông tin website</span>
                     </a>
                 </li>
                  
@@ -122,7 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Mã giảm giá</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{URL::to('/insert-coupon')}}">Quản lý mã giảm giá</a></li>
+                        <li><a href="{{URL::to('/insert-coupon')}}">Thêm mã giảm giá</a></li>
                         <li><a href="{{URL::to('/list-coupon')}}">Liệt kê mã giảm giá</a></li>
                     </ul>
                 </li>
@@ -149,7 +186,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                       
                     </ul>
                 </li>
-                 <li class="sub-menu">
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Bình luận</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{URL::to('/comment')}}">Liệt kê bình luận</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Danh mục bài viết</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{URL::to('/add-category-post')}}">Thêm danh mục bài viết</a></li>
+                        <li><a href="{{URL::to('/all-category-post')}}">Liệt kê danh mục bài viết</a></li>
+                      
+                    </ul>
+                </li>
+                <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
                         <span>Thương hiệu sản phẩm</span>
@@ -160,7 +217,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                       
                     </ul>
                 </li>
-                  <li class="sub-menu">
+              
+                <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
                         <span>Sản phẩm</span>
@@ -174,6 +232,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                  <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
+                        <span>Bài viết</span>
+                    </a>
+                    <ul class="sub">
+                         <li><a href="{{URL::to('/add-post')}}">Thêm bài viết</a></li>
+                        <li><a href="{{URL::to('/all-post')}}">Liệt kê bài viết</a></li>
+                      
+                    </ul>
+                </li>
+                 <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Video</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{URL::to('video')}}">Thêm video</a></li>
+                    
+                      
+                    </ul>
+                </li>
+                @impersonate
+                <li>
+                   
+                    <span><a href="{{URL::to('/impersonate-destroy')}}">Stop chuyển quyền</a></span>
+                  
+                </li>
+                @endimpersonate
+
+                @hasrole(['admin','author'])
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
                         <span>Users</span>
                     </a>
                     <ul class="sub">
@@ -182,6 +271,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                       
                     </ul>
                 </li>
+
+                @endhasrole
              
             </ul>            </div>
         <!-- sidebar menu end-->
@@ -208,9 +299,663 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{asset('/backend/js/scripts.js')}}"></script>
 <script src="{{asset('/backend/js/jquery.slimscroll.js')}}"></script>
 <script src="{{asset('/backend/js/jquery.nicescroll.js')}}"></script>
+
+
 <script src="{{asset('/backend/ckeditor/ckeditor.js')}}"></script>
+
+<script src="{{asset('/backend/js/simple.money.format.js')}}"></script>
+
+
+
+
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <script src="{{asset('/backend/js/jquery.form-validator.min.js')}}"></script>
-<script src="{{asset('/backend/js/jquery.dataTables.min.js')}}"></script>
+
+<script>
+  var options = {
+    filebrowserImageBrowseUrl: 'laravel-filemanager?type=Images',
+    filebrowserImageUploadUrl: 'laravel-filemanager/upload?type=Images&_token=',
+    filebrowserBrowseUrl: 'laravel-filemanager?type=Files',
+    filebrowserUploadUrl: 'laravel-filemanager/upload?type=Files&_token='
+  };
+</script>
+<script>
+CKEDITOR.replace('my-editor', options);
+</script>
+
+<script type="text/javascript">
+   
+  $( function() {
+    $( "#start_coupon" ).datepicker({
+        prevText:"Tháng trước",
+        nextText:"Tháng sau",
+        dateFormat:"dd/mm/yy",
+        dayNamesMin: [ "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "Chủ nhật" ],
+        duration: "slow"
+    });
+    $( "#end_coupon" ).datepicker({
+        prevText:"Tháng trước",
+        nextText:"Tháng sau",
+        dateFormat:"dd/mm/yy",
+        dayNamesMin: [ "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "Chủ nhật" ],
+        duration: "slow"
+    });
+  } );
+ 
+</script>
+<script type="text/javascript">
+
+    list_nut();
+    function delete_icons(id){
+         $.ajax({
+                url:"{{url('/delete-icons')}}",
+                method:"GET",
+                data:{id:id},
+                success:function(data)
+                    {
+                        list_nut();
+                        list_doitac();
+                    }   
+            }); 
+    }
+    function list_nut(){
+
+          $.ajax({
+                url:"{{url('/list-nut')}}",
+                method:"GET",
+                success:function(data)
+                    {
+                        $('#list_nut').html(data);
+                    }   
+            });    
+    }
+    $('.add-nut').click(function(){
+       
+         var name = $('#name').val();
+         var link = $('#link').val();
+         var image = $('#image_nut')[0].files[0];
+         var form_data = new FormData();
+
+            form_data.append('file',image);
+            form_data.append('name',name);
+            form_data.append('link',link);
+           
+    
+
+
+       $.ajax({
+                url:"{{url('/add-nut')}}",
+                method:"POST",
+                headers:{
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                contentType: false,
+                cache: false,
+                processData: false,
+
+                data:form_data,
+                success:function(data)
+                    {
+                       alert('Thêm nút thành công');
+                        list_nut();
+                        $('#name').val('');
+                        $('#link').val('');
+                        
+                    }   
+            });    
+    })
+</script>
+<!-----------------List đối tác-------------------->
+<script type="text/javascript">
+
+ 
+    list_doitac();
+    function list_doitac(){
+
+          $.ajax({
+                url:"{{url('/list-doitac')}}",
+                method:"GET",
+                success:function(data)
+                    {
+                        $('#list_doitac').html(data);
+                    }   
+            });    
+    }
+    $('.add-doitac').click(function(){
+       
+         var name = $('#name_doitac').val();
+         var link = $('#link_doitac').val();
+         var image = $('#image_doitac')[0].files[0];
+         var form_data = new FormData();
+
+            form_data.append('file',image);
+            form_data.append('name',name);
+            form_data.append('link',link);
+           
+    
+
+
+       $.ajax({
+                url:"{{url('/add-doitac')}}",
+                method:"POST",
+                headers:{
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                contentType: false,
+                cache: false,
+                processData: false,
+
+                data:form_data,
+                success:function(data)
+                    {
+                       alert('Thêm đối tác thành công');
+                       list_doitac();
+                       
+                        
+                    }   
+            });    
+    })
+</script>
+<script type="text/javascript">
+    $('.btn-delete-document').click(function(){
+
+        var product_id = $(this).data('document_id');
+        var _token = $('input[name="_token"]').val();
+         $.ajax({
+                url:"{{url('/delete-document')}}",
+                method:"POST",
+               
+                data:{_token:_token,product_id:product_id},
+                
+                success:function(data)
+                    {
+                        alert('Xóa file thành công');
+                        location.reload();
+                    }   
+            });    
+    });
+</script>
+<script type="text/javascript">
+    $('.price_format').simpleMoneyFormat();
+
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+        chart60daysorder();
+
+        var chart = new Morris.Bar({
+             
+              element: 'chart',
+              //option chart
+              lineColors: ['#819C79', '#fc8710','#FF6541', '#A4ADD3', '#766B56'],
+                parseTime: false,
+                hideHover: 'auto',
+                xkey: 'period',
+                ykeys: ['order','sales','profit','quantity'],
+                labels: ['đơn hàng','doanh số','lợi nhuận','số lượng']
+            
+            });
+
+
+       
+        function chart60daysorder(){
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+                url:"{{url('/days-order')}}",
+                method:"POST",
+                dataType:"JSON",
+                data:{_token:_token},
+                
+                success:function(data)
+                    {
+                        chart.setData(data);
+                    }   
+            });
+        }
+
+    $('.dashboard-filter').change(function(){
+        var dashboard_value = $(this).val();
+        var _token = $('input[name="_token"]').val();
+        // alert(dashboard_value);
+        $.ajax({
+            url:"{{url('/dashboard-filter')}}",
+            method:"POST",
+            dataType:"JSON",
+            data:{dashboard_value:dashboard_value,_token:_token},
+            
+            success:function(data)
+                {
+                    chart.setData(data);
+                }   
+            });
+
+    });
+
+    $('#btn-dashboard-filter').click(function(){
+       
+        var _token = $('input[name="_token"]').val();
+
+        var from_date = $('#datepicker').val();
+        var to_date = $('#datepicker2').val();
+
+         $.ajax({
+            url:"{{url('/filter-by-date')}}",
+            method:"POST",
+            dataType:"JSON",
+            data:{from_date:from_date,to_date:to_date,_token:_token},
+            
+            success:function(data)
+                {
+                    chart.setData(data);
+                }   
+        });
+
+    });
+
+});
+    
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+      
+        //     });
+        var donut = Morris.Donut({
+          element: 'donut',
+          resize: true,
+          colors: [
+            '#a8328e',
+            '#61a1ce',
+            '#ce8f61',
+            '#f5b942',
+            '#4842f5'
+            
+          ],
+          //labelColor:"#cccccc", // text color
+          //backgroundColor: '#333333', // border color
+          data: [
+            {label:"San pham", value:<?php echo $app_product ?>},
+            {label:"Bai viet", value:<?php echo $app_post ?>},
+            {label:"Don hang", value:<?php echo $app_order ?>},
+            {label:"Video", value:<?php echo $app_video ?>},
+            {label:"Khach hang", value:<?php echo $app_customer ?>} 
+          ]
+        });
+     
+});
+</script>
+
+<script type="text/javascript">
+   
+  $( function() {
+    $( "#datepicker" ).datepicker({
+        prevText:"Tháng trước",
+        nextText:"Tháng sau",
+        dateFormat:"yy-mm-dd",
+        dayNamesMin: [ "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "Chủ nhật" ],
+        duration: "slow"
+    });
+    $( "#datepicker2" ).datepicker({
+        prevText:"Tháng trước",
+        nextText:"Tháng sau",
+        dateFormat:"yy-mm-dd",
+        dayNamesMin: [ "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "Chủ nhật" ],
+        duration: "slow"
+    });
+  } );
+ 
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $('#category_order').sortable({
+            placeholder: 'ui-state-highlight',
+             update  : function(event, ui)
+              {
+                var page_id_array = new Array();
+                var _token = $('input[name="_token"]').val();
+
+                $('#category_order tr').each(function(){
+                    page_id_array.push($(this).attr("id"));
+                });
+                
+                $.ajax({
+                        url:"{{url('/arrange-category')}}",
+                        method:"POST",
+                        data:{page_id_array:page_id_array,_token:_token},
+                        success:function(data)
+                        {
+                            alert(data);
+                        }
+                });
+
+              }
+        });
+       
+
+    });
+</script>
+<script type="text/javascript">
+    $('.comment_duyet_btn').click(function(){
+        var comment_status = $(this).data('comment_status');
+
+        var comment_id = $(this).data('comment_id');
+        var comment_product_id = $(this).attr('id');
+        if(comment_status==0){
+            var alert = 'Thay đổi thành duyệt thành công';
+        }else{
+            var alert = 'Thay đổi thành không duyệt thành công';
+        }
+          $.ajax({
+                url:"{{url('/allow-comment')}}",
+                method:"POST",
+
+                headers:{
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data:{comment_status:comment_status,comment_id:comment_id,comment_product_id:comment_product_id},
+                success:function(data){
+                    location.reload();
+                   $('#notify_comment').html('<span class="text text-alert">'+alert+'</span>');
+
+                }
+            });
+
+
+    });
+    $('.btn-reply-comment').click(function(){
+        var comment_id = $(this).data('comment_id');
+
+        var comment = $('.reply_comment_'+comment_id).val();
+
+        
+
+        var comment_product_id = $(this).data('product_id');
+
+        
+        // alert(comment);
+        // alert(comment_id);
+        // alert(comment_product_id);
+        
+          $.ajax({
+                url:"{{url('/reply-comment')}}",
+                method:"POST",
+
+                headers:{
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data:{comment:comment,comment_id:comment_id,comment_product_id:comment_product_id},
+                success:function(data){
+                    $('.reply_comment_'+comment_id).val('');
+                   $('#notify_comment').html('<span class="text text-alert">Trả lời bình luận thành công</span>');
+
+                }
+            });
+
+
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+</script>
+<script type="text/javascript">
+	 $(document).on('click','#btn-add-video', function(){
+            var video_title = $('.video_title').val();
+            var video_slug = $('.video_slug').val();
+            var video_desc = $('.video_desc').val();
+            var video_link = $('.video_link').val();
+          	alert(video_title);
+            var form_data = new FormData();
+
+            form_data.append("file", document.getElementById("file_img_video").files[0]);
+            form_data.append("video_title",video_title);
+            form_data.append("video_slug",video_slug);
+            form_data.append("video_desc",video_desc);
+            form_data.append("video_link",video_link);
+
+            $.ajax({
+                url:"{{url('/insert-video')}}",
+                method:"POST",
+                headers:{
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+
+                data:form_data,
+
+                contentType:false,
+                cache:false,
+                processData:false,
+
+                success:function(data){
+                    load_video();
+                    $('#notify').html('<span class="text text-success">Đã thêm video thành công</span>');
+                }
+            });
+
+
+        });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+    load_video();
+
+    function load_video(){
+
+            $.ajax({
+                url:"{{url('/select-video')}}",
+                method:"POST",
+                headers:{
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+
+                success:function(data){
+                    $('#video_load').html(data);
+                }
+            });
+        }
+       
+        $(document).on('click','.btn-delete-video',function(){
+            var video_id = $(this).data('video_id');
+            if(confirm('Bạn muốn xóa video này không?')){
+                $.ajax({
+                    url:"{{url('/delete-video')}}",
+                    method:"POST",
+                    headers:{
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data:{video_id:video_id},
+                    success:function(data){
+                        load_video();
+                        $('#notify').html('<span class="text text-success">Xóa video thành công</span>');
+                    }
+                });
+            }
+
+
+        });
+        $(document).on('blur','.video_edit',function(){
+            var video_type = $(this).data('video_type');
+            var video_id = $(this).data('video_id');
+            //alert(video_type);
+            if(video_type=='video_title'){
+                var video_edit = $('#'+video_type+'_'+video_id).text();
+                var video_check = video_type;
+            }else if(video_type=='video_desc'){
+                var video_edit = $('#'+video_type+'_'+video_id).text();
+                var video_check = video_type;
+            }else if(video_type=='video_link'){
+                var video_edit = $('#'+video_type+'_'+video_id).text();
+                var video_check = video_type;
+            }else{
+                var video_edit = $('#'+video_type+'_'+video_id).text();
+                var video_check = video_type;
+            }
+
+            $.ajax({
+                url:"{{url('/update-video')}}",
+                method:"POST",
+                headers:{
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data:{video_check:video_check,video_edit:video_edit,video_id:video_id},
+                success:function(data){
+                    load_video();
+                    $('#notify').html('<span class="text text-success">Cập nhật video thành công</span>');
+                }
+            });
+
+        });
+
+        $(document).on('change','.file_img_video',function(){
+
+            var video_id = $(this).data('video_id');
+            var image = document.getElementById("file-video-"+video_id).files[0];
+
+            var form_data = new FormData();
+
+            form_data.append("file", document.getElementById("file-video-"+video_id).files[0]);
+            form_data.append("video_id",video_id);
+
+
+          
+                $.ajax({
+                    url:"{{url('/update-video-image')}}",
+                    method:"POST",
+                    headers:{
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data:form_data,
+
+                    contentType:false,
+                    cache:false,
+                    processData:false,
+
+                    success:function(data){
+                        load_video();
+                        $('#notify').html('<span class="text text-success">Cập nhật hình ảnh video thành công</span>');
+                    }
+                });
+            
+        });
+
+
+
+    });
+
+</script>
+<script type="text/javascript">
+ 
+        load_gallery();
+
+        function load_gallery(){
+            var pro_id = $('.pro_id').val();
+            var _token = $('input[name="_token"]').val();
+            // alert(pro_id);
+            $.ajax({
+                url:"{{url('/select-gallery')}}",
+                method:"POST",
+                data:{pro_id:pro_id,_token:_token},
+                success:function(data){
+                    $('#gallery_load').html(data);
+                }
+            });
+        }
+
+        $('#file').change(function(){
+            var error = '';
+            var files = $('#file')[0].files;
+
+            if(files.length>5){
+                error+='<p>Bạn chọn tối đa chỉ được 5 ảnh</p>';
+            }else if(files.length==''){
+                error+='<p>Bạn không được bỏ trống ảnh</p>';
+            }else if(files.size > 2000000){
+                error+='<p>File ảnh không được lớn hơn 2MB</p>';
+            }
+
+            if(error==''){
+
+            }else{
+                $('#file').val('');
+                $('#error_gallery').html('<span class="text-danger">'+error+'</span>');
+                return false;
+            }
+
+        });
+
+        $(document).on('blur','.edit_gal_name',function(){
+            var gal_id = $(this).data('gal_id');
+            var gal_text = $(this).text();
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+                url:"{{url('/update-gallery-name')}}",
+                method:"POST",
+                data:{gal_id:gal_id,gal_text:gal_text,_token:_token},
+                success:function(data){
+                    load_gallery();
+                    $('#error_gallery').html('<span class="text-danger">Cập nhật tên hình ảnh thành công</span>');
+                }
+            });
+        });
+
+        $(document).on('click','.delete-gallery',function(){
+            var gal_id = $(this).data('gal_id');
+          
+            var _token = $('input[name="_token"]').val();
+            if(confirm('Bạn muốn xóa hình ảnh này không?')){
+                $.ajax({
+                    url:"{{url('/delete-gallery')}}",
+                    method:"POST",
+                    data:{gal_id:gal_id,_token:_token},
+                    success:function(data){
+                        load_gallery();
+                        $('#error_gallery').html('<span class="text-danger">Xóa hình ảnh thành công</span>');
+                    }
+                });
+            }
+        });
+
+        $(document).on('change','.file_image',function(){
+
+            var gal_id = $(this).data('gal_id');
+            var image = document.getElementById("file-"+gal_id).files[0];
+
+            var form_data = new FormData();
+
+            form_data.append("file", document.getElementById("file-"+gal_id).files[0]);
+            form_data.append("gal_id",gal_id);
+
+
+          
+                $.ajax({
+                    url:"{{url('/update-gallery')}}",
+                    method:"POST",
+                    headers:{
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data:form_data,
+
+                    contentType:false,
+                    cache:false,
+                    processData:false,
+                    success:function(data){
+                        load_gallery();
+                        $('#error_gallery').html('<span class="text-danger">Cập nhật hình ảnh thành công</span>');
+                    }
+                });
+            
+        });
+
+
+
+  
+</script>
 <script type="text/javascript">
  
     function ChangeToSlug()
@@ -249,6 +994,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    
    
 </script>
+
 <script type="text/javascript">
     $('.update_quantity_order').click(function(){
         var order_product_id = $(this).data('product_id');
@@ -279,6 +1025,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     });
 </script>
+
 <script type="text/javascript">
     $('.order_details').change(function(){
         var order_status = $(this).val();
@@ -310,6 +1057,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 $('.color_qty_'+order_product_id[i]).css('background','#000');
             }
         }
+        
         if(j==0){
           
                 $.ajax({
@@ -326,6 +1074,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     });
 </script>
+
 <script type="text/javascript">
     $(document).ready(function(){
 
@@ -359,6 +1108,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
 
         });
+        
         $('.add_delivery').click(function(){
 
            var city = $('.city').val();
@@ -418,14 +1168,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             
         });
 </script>
- <script>
-       // Replace the <textarea id="editor1"> with a CKEditor
-       // instance, using default configuration.
+
+ <script  type="text/javascript">
+      
+         
+        
         CKEDITOR.replace('ckeditor');
-        CKEDITOR.replace('ckeditor1');
-        CKEDITOR.replace('ckeditor2');
-        CKEDITOR.replace('ckeditor3');
+        CKEDITOR.replace('ckeditor1',{
+
+            filebrowserImageUploadUrl : "{{ url('uploads-ckeditor?_token='.csrf_token()) }}",
+            filebrowserBrowseUrl : "{{ url('file-browser?_token='.csrf_token()) }}",
+            filebrowserUploadMethod: 'form'
+
+        });
+
+        CKEDITOR.replace('ckeditor2', {
+
+            filebrowserImageUploadUrl : "{{ url('uploads-ckeditor?_token='.csrf_token()) }}",
+            filebrowserBrowseUrl : "{{ url('file-browser?_token='.csrf_token()) }}",
+            filebrowserUploadMethod: 'form'
+
+        });
+
+        CKEDITOR.replace('ckeditor3',{
+
+            filebrowserImageUploadUrl : "{{ url('uploads-ckeditor?_token='.csrf_token()) }}",
+            filebrowserBrowseUrl : "{{ url('file-browser?_token='.csrf_token()) }}",
+            filebrowserUploadMethod: 'form'
+        });
         CKEDITOR.replace('id4');
+
+     
+    
 </script>
 
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->

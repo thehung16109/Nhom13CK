@@ -16,4 +16,5 @@ class Roles extends Model
  	public function admin(){
  		return $this->belongsToMany('App\Admin');
  	}
+ 	
 }

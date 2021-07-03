@@ -10,13 +10,21 @@ use Illuminate\Support\Facades\Redirect;
 use DB;
 class SliderController extends Controller
 {
-	public function AuthLogin(){
-        $admin_id = Session::get('admin_id');
-        if($admin_id){
-            return Redirect::to('dashboard');
+	 public function AuthLogin(){
+        
+        if(Session::get('login_normal')){
+
+            $admin_id = Session::get('admin_id');
         }else{
-            return Redirect::to('admin')->send();
+            $admin_id = Auth::id();
         }
+            if($admin_id){
+                return Redirect::to('dashboard');
+            }else{
+                return Redirect::to('admin')->send();
+            } 
+        
+       
     }
     public function manage_slider(){
     	$all_slide = Slider::orderBy('slider_id','DESC')->paginate(2);

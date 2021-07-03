@@ -30,13 +30,21 @@
                                     <label for="exampleInputEmail1">Slug</label>
                                     <input type="text" name="product_slug" class="form-control " id="convert_slug" placeholder="Tên danh mục">
                                 </div>
-                                     <div class="form-group">
-                                    <label for="exampleInputEmail1">Giá sản phẩm</label>
-                                    <input type="text" data-validation="number" data-validation-error-msg="Làm ơn điền số tiền" name="product_price" class="form-control" id="" placeholder="Tên danh mục">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Giá bán</label>
+                                    <input type="text" data-validation="length" data-validation-length="min5" data-validation-error-msg="Làm ơn điền số tiền" name="product_price" class="form-control price_format" id="" placeholder="Tên danh mục">
                                 </div>
-                                  <div class="form-group">
+                                 <div class="form-group">
+                                    <label for="exampleInputEmail1">Giá gốc</label>
+                                    <input type="text" data-validation="length" data-validation-length="min5" data-validation-error-msg="Làm ơn điền số tiền" name="price_cost" class="form-control price_format" id="" placeholder="Tên danh mục">
+                                </div>
+                                <div class="form-group">
                                     <label for="exampleInputEmail1">Hình ảnh sản phẩm</label>
                                     <input type="file" name="product_image" class="form-control" id="exampleInputEmail1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Tài liệu</label>
+                                    <input type="file" name="document" class="form-control" id="exampleInputEmail1">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Mô tả sản phẩm</label>
@@ -44,16 +52,30 @@
                                 </div>
                                  <div class="form-group">
                                     <label for="exampleInputPassword1">Nội dung sản phẩm</label>
-                                    <textarea style="resize: none" rows="8" class="form-control" name="product_content"  id="id4" placeholder="Nội dung sản phẩm"></textarea>
+                                    <textarea style="resize: none" rows="8" class="form-control" name="product_content"  id="my-editor" placeholder="Nội dung sản phẩm"></textarea>
                                 </div>
                                  <div class="form-group">
                                     <label for="exampleInputPassword1">Danh mục sản phẩm</label>
                                       <select name="product_cate" class="form-control input-sm m-bot15">
                                         @foreach($cate_product as $key => $cate)
-                                            <option value="{{$cate->category_id}}">{{$cate->category_name}}</option>
+                                            @if($cate->category_parent==0)
+                                                <option style="font-size: 15px" value="{{$cate->category_id}}">{{$cate->category_name}}</option>
+                                                @foreach($cate_product as $key => $cate_sub)
+                                                    @if($cate_sub->category_parent!=0 && $cate_sub->category_parent==$cate->category_id)
+                                                    <option style="color: red;font-size: 15px" value="{{$cate_sub->category_id}}">---{{$cate_sub->category_name}}</option>   
+                                                    @endif
+                                                @endforeach
+
+                                            @endif
                                         @endforeach
                                             
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Tags sản phẩm</label>
+
+                                    <input type="text" data-role="tagsinput" name="product_tags" class="form-control">
+                                     
                                 </div>
                                  <div class="form-group">
                                     <label for="exampleInputPassword1">Thương hiệu</label>

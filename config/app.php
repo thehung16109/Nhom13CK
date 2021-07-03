@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://localhost/tutorial_youtube/shopbanhanglaravel'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'vi',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'vi',
 
     /*
     |--------------------------------------------------------------------------
@@ -161,6 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+
         Laravel\Socialite\SocialiteServiceProvider::class,      //cho provider
 
 
@@ -173,12 +174,22 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
+        App\Providers\BladeServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
-       
+        
+        App\Providers\GoogleDriveServiceProvider::class,
+        Srmklive\PayPal\Providers\PayPalServiceProvider::class,
+        //Change languge package
+        Dimsav\Translatable\TranslatableServiceProvider::class,
+        Astrotomic\Translatable\TranslatableServiceProvider::class,
+        //Laravel file management package
+         UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
+         Intervention\Image\ImageServiceProvider::class,
+      
 
     ],
 
@@ -233,6 +244,10 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,      
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Paypal' =>  Srmklive\PayPal\Providers\PayPalServiceProvider::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        
+        
     ],
 
 ];

@@ -26,11 +26,12 @@
 					<thead>
 						<tr class="cart_menu">
 							<td class="image">Hình ảnh</td>
-							<td class="description">Tên Voucher</td>
-							<td class="price">Giá</td>
+							<td class="description">Tên sản phẩm</td>
+							<td class="description">Số lượng tồn</td>
+							<td class="price">Giá sản phẩm</td>
 							<td class="quantity">Số lượng</td>
 							<td class="total">Thành tiền</td>
-							<td style="padding:0 20px 0 0">Action</td>
+							<td></td>
 						</tr>
 					</thead>
 					<tbody>
@@ -46,11 +47,15 @@
 
 						<tr>
 							<td class="cart_product">
-								<img  src="{{asset('/uploads/product/'.$cart['product_image'])}}" width="90" alt="{{$cart['product_name']}}" />
+								<img src="{{asset('/uploads/product/'.$cart['product_image'])}}" width="90" alt="{{$cart['product_name']}}" />
 							</td>
 							<td class="cart_description">
 								<h4><a href=""></a></h4>
 								<p>{{$cart['product_name']}}</p>
+							</td>
+							<td class="cart_description">
+								<h4><a href=""></a></h4>
+								<p>{{$cart['product_quantity']}}</p>
 							</td>
 							<td class="cart_price">
 								<p>{{number_format($cart['product_price'],0,',','.')}}đ</p>
@@ -59,6 +64,8 @@
 								<div class="cart_quantity_button">
 								
 									<input class="cart_quantity" type="number" min="1" name="cart_qty[{{$cart['session_id']}}]" value="{{$cart['product_qty']}}"  >
+								
+									
 								</div>
 							</td>
 							<td class="cart_total">
@@ -68,7 +75,9 @@
 								</p>
 							</td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" href="{{url('/del-product/'.$cart['session_id'])}}"><i class="fa fa-times"></i></a>
+								<a class="cart_quantity_delete" href="{{url('/del-product/'.$cart['session_id'])}}">
+									<i class="fa fa-times"></i>
+								</a>
 							</td>
 						</tr>
 						
@@ -83,7 +92,6 @@
 							</td>
 
 							<td>
-								{{-- Nếu người dùng có login vào  --}}
 								@if(Session::get('customer_id'))
 	                          	<a class="btn btn-default check_out" href="{{url('/checkout')}}">Đặt hàng</a>
 	                          	@else 
@@ -139,10 +147,26 @@
 						</tr>
 						@endif
 					</tbody>
-				</form>
+
 					
 
+				</form>
+					@if(Session::get('cart'))
+					<tr><td>
+
+							<form method="POST" action="{{url('/check-coupon')}}">
+								@csrf
+									<input type="text" class="form-control" name="coupon" placeholder="Nhập mã giảm giá"><br>
+								
+	                          		<input type="submit" class="btn btn-default check_coupon" name="check_coupon" value="Tính mã giảm giá">
+	                          	
+                          		</form>
+                          	</td>
+					</tr>
+					@endif
+
 				</table>
+			
 
 			</div>
 		</div>

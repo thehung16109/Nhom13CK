@@ -32,13 +32,41 @@
                                     <input type="text" name="product_slug" class="form-control" id="exampleInputEmail1" value="{{$pro->product_slug}}">
                                 </div>
                                      <div class="form-group">
-                                    <label for="exampleInputEmail1">Giá sản phẩm</label>
-                                    <input type="text" value="{{$pro->product_price}}" name="product_price" class="form-control" id="exampleInputEmail1" >
+                                    <label for="exampleInputEmail1">Giá bán</label>
+                                    <input type="text" value="{{$pro->product_price}}" name="product_price" class="form-control price_format" id="exampleInputEmail1" >
+                                </div>
+                                  <div class="form-group">
+                                    <label for="exampleInputEmail1">Giá gốc</label>
+                                    <input type="text" data-validation="length" data-validation-length="min5"  data-validation-error-msg="Làm ơn điền số tiền" name="price_cost" class="form-control price_format" id="" value="{{$pro->price_cost}}">
                                 </div>
                                   <div class="form-group">
                                     <label for="exampleInputEmail1">Hình ảnh sản phẩm</label>
                                     <input type="file" name="product_image" class="form-control" id="exampleInputEmail1">
-                                    <img src="{{URL::to('public/uploads/product/'.$pro->product_image)}}" height="100" width="100">
+                                    <img src="{{URL::to('/uploads/product/'.$pro->product_image)}}" height="100" width="100">
+                                </div>
+                                <style type="text/css">
+                                    p.cofile {
+                                        text-align: left;
+                                        font-size: 16px;
+                                        margin: 5px 0;
+                                    }
+                                </style>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Tài liệu</label>
+                                    <input type="file" name="document" class="form-control" id="exampleInputEmail1">
+                                    @if($pro->product_file)
+                                    <p class="cofile">
+
+                                        <a target="_blank" href="{{asset('/uploads/document/'.$pro->product_file)}}">
+                                            {{$pro->product_file}}
+                                        </a>
+
+                                        <button type="button" data-document_id="{{$pro->product_id}}" class="btn btn-sm btn-danger btn-delete-document"><i class="fa fa-times"></i></button>
+
+                                    </p>
+                                    @else 
+                                    <p class="cofile">Không file</p>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Mô tả sản phẩm</label>
@@ -60,6 +88,11 @@
                                         @endforeach
                                             
                                     </select>
+                                </div>
+                                 <div class="form-group">
+                                    <label for="exampleInputPassword1">Tags sản phẩm</label>
+                                    <input type="text" data-role="tagsinput" value="{{$pro->product_tags}}" name="product_tags" class="form-control" id="" placeholder="Tên danh mục">
+                                     
                                 </div>
                                  <div class="form-group">
                                     <label for="exampleInputPassword1">Thương hiệu</label>

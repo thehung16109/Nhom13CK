@@ -44,15 +44,15 @@ return [
         ],
     ],
     'facebook' => [
-        'client_id' => '208251227064009',  //client face của bạn
-        'client_secret' => '2d1c4a61ec283b1e63a484860f290b59',  //client app service face của bạn
-        'redirect' => 'http://localhost/tutorial_youtube/shopbanhanglaravel/admin/callback' //callback trả về
+        'client_id' => env('FACEBOOK_APP_ID'),
+        'client_secret' => env('FACEBOOK_APP_SECRET'),
+        'redirect' => env('FACEBOOK_REDIRECT'),
     ],
     
     'google' => [
-        'client_id' => '587558366742-n2gl781eut9f848gjmfr5t6ujsghmkkd.apps.googleusercontent.com',
-        'client_secret' => 'ZkIGxQR7Js7yemREjaC8LGnU',
-        'redirect' => 'http://localhost/tutorial_youtube/shopbanhanglaravel/google/callback' 
+        'client_id' => env('GOOGLE_ID'),
+        'client_secret' => env('GOOGLE_SECRET'),
+        'redirect' => env('GOOGLE_URL'),
     ],
 
 

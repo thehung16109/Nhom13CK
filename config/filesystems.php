@@ -40,7 +40,7 @@ return [
     | Supported Drivers: "local", "ftp", "sftp", "s3", "rackspace"
     |
     */
-
+    
     'disks' => [
 
         'local' => [
@@ -51,7 +51,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL').'/public/storage',
             'visibility' => 'public',
         ],
 
@@ -63,6 +63,31 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
         ],
+
+        'google' => [
+            'driver' => 'google',
+            'clientId' => env('GOOGLE_DRIVE_CLIENT_ID'),
+            'clientSecret' => env('GOOGLE_DRIVE_CLIENT_SECRET'),
+            'refreshToken' => env('GOOGLE_DRIVE_REFRESH_TOKEN'),
+            'folderId' => env('GOOGLE_DRIVE_FOLDER_ID'),
+        ],
+
+        'second_google' => [
+            'driver' => 'google',
+            'clientId' => env('SECOND_GOOGLE_DRIVE_CLIENT_ID'),
+            'clientSecret' => env('SECOND_GOOGLE_DRIVE_CLIENT_SECRET'),
+            'refreshToken' => env('SECOND_GOOGLE_DRIVE_REFRESH_TOKEN'),
+            'folderId' => env('SECOND_GOOGLE_DRIVE_FOLDER_ID'),
+        ], 
+
+        'thirst_google' => [
+            'driver' => 'google',
+            'clientId' => env('THIRST_GOOGLE_DRIVE_CLIENT_ID'),
+            'clientSecret' => env('THIRST_GOOGLE_DRIVE_CLIENT_SECRET'),
+            'refreshToken' => env('THIRST_GOOGLE_DRIVE_REFRESH_TOKEN'),
+            'folderId' => env('THIRST_GOOGLE_DRIVE_FOLDER_ID'),
+        ], 
+         
 
     ],
 

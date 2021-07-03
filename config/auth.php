@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'customusers',
     ],
 
     /*
@@ -38,12 +38,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'customusers',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'customusers',
             'hash' => false,
         ],
     ],
@@ -66,15 +66,17 @@ return [
     */
 
     'providers' => [
+        
         'users' => [
             'driver' => 'eloquent',
+            // 'model' => App\User::class,
             'model' => App\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'customusers' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
+        ],
     ],
 
     /*
@@ -97,6 +99,18 @@ return [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
+        ],
+
+        'customusers' => [
+            'provider' => 'customusers',
+            'table' => 'password_resets',
+            'expire' => 15,
+        ],
+    ],
+
+    'socialite' => [
+        'drivers' => [
+            'google',
         ],
     ],
 

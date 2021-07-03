@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Brand;
 use App\Slider;
+use App\CatePost;
 use Session;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
@@ -13,12 +14,20 @@ session_start();
 class BrandProduct extends Controller
 {
     public function AuthLogin(){
-        $admin_id = Session::get('admin_id');
-        if($admin_id){
-            return Redirect::to('dashboard');
+        
+        if(Session::get('login_normal')){
+
+            $admin_id = Session::get('admin_id');
         }else{
-            return Redirect::to('admin')->send();
+            $admin_id = Auth::id();
         }
+            if($admin_id){
+                return Redirect::to('dashboard');
+            }else{
+                return Redirect::to('admin')->send();
+            } 
+        
+       
     }
     public function add_brand_product(){
         $this->AuthLogin();
@@ -106,6 +115,8 @@ class BrandProduct extends Controller
     //End Function Admin Page
      
      public function show_brand_home(Request $request, $brand_slug){
+           //category post
+        $category_post = CatePost::orderBy('cate_post_id','DESC')->get();
         //slide
         $slider = Slider::orderBy('slider_id','DESC')->where('slider_status','1')->take(4)->get();
 
@@ -126,6 +137,6 @@ class BrandProduct extends Controller
             //--seo
         }
          
-        return view('pages.brand.show_brand')->with('category',$cate_product)->with('brand',$brand_product)->with('brand_by_id',$brand_by_id)->with('brand_name',$brand_name)->with('meta_desc',$meta_desc)->with('meta_keywords',$meta_keywords)->with('meta_title',$meta_title)->with('url_canonical',$url_canonical)->with('slider',$slider);
+        return view('pages.brand.show_brand')->with('category',$cate_product)->with('brand',$brand_product)->with('brand_by_id',$brand_by_id)->with('brand_name',$brand_name)->with('meta_desc',$meta_desc)->with('meta_keywords',$meta_keywords)->with('meta_title',$meta_title)->with('url_canonical',$url_canonical)->with('slider',$slider)->with('category_post',$category_post);
     }
 }

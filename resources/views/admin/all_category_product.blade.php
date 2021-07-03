@@ -43,18 +43,49 @@
               </label>
             </th>
             <th>Tên danh mục</th>
+            <th>Thuộc danh mục</th>
             <th>Slug</th>
+            <th>Thứ tự danh mục</th>
             <th>Hiển thị</th>
             
             <th style="width:30px;"></th>
           </tr>
         </thead>
-        <tbody>
+        <style type="text/css">
+          #category_order .ui-state-highlight
+           {
+            padding:24px;
+            background-color:#ffffcc;
+            border:1px dotted #ccc;
+            cursor:move;
+            margin-top:12px;
+           }
+        </style>
+
+        <tbody id="category_order">
+
           @foreach($all_category_product as $key => $cate_pro)
-          <tr>
+          <tr id="{{$cate_pro->category_id}}">
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
             <td>{{ $cate_pro->category_name }}</td>
+            <td>
+              @if($cate_pro->category_parent==0)
+                <span style="color:red;">Danh mục cha</span>
+
+              @else 
+
+                @foreach($category_product as $key => $cate_sub_pro)
+
+                  @if($cate_sub_pro->category_id==$cate_pro->category_parent)
+                    <span style="color:green;">{{$cate_sub_pro->category_name}}</span>
+                  @endif
+
+                @endforeach
+
+              @endif
+            </td>
             <td>{{ $cate_pro->slug_category_product }}</td>
+            <td>{{ $cate_pro->category_order }}</td>
             <td><span class="text-ellipsis">
               <?php
                if($cate_pro->category_status==0){

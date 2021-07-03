@@ -5,7 +5,7 @@
     <div class="panel-heading">
       Liệt kê sản phẩm
     </div>
-    <div class="row w3-res-tb">
+   {{--  <div class="row w3-res-tb">
       <div class="col-sm-5 m-b-xs">
         <select class="input-sm form-control w-sm inline v-middle">
           <option value="0">Bulk action</option>
@@ -25,7 +25,7 @@
           </span>
         </div>
       </div>
-    </div>
+    </div> --}}
     <div class="table-responsive">
                       <?php
                             $message = Session::get('message');
@@ -34,7 +34,7 @@
                                 Session::put('message',null);
                             }
                             ?>
-      <table class="table table-striped b-t b-light">
+      <table class="table table-striped b-t b-light" id="myTable">
         <thead>
           <tr>
             <th style="width:20px;">
@@ -43,9 +43,13 @@
               </label>
             </th>
             <th>Tên sản phẩm</th>
+            <th>Thư viện ảnh</th>
+           
+            <th>Tài liệu</th>
             <th>Số lượng</th>
             <th>Slug</th>
-            <th>Giá</th>
+            <th>Giá bán</th>
+            <th>Giá gốc</th>
             <th>Hình sản phẩm</th>
             <th>Danh mục</th>
             <th>Thương hiệu</th>
@@ -59,11 +63,30 @@
           @foreach($all_product as $key => $pro)
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+
             <td>{{ $pro->product_name }}</td>
+            <td><a href="{{url('/add-gallery/'.$pro->product_id)}}">Thêm thư viện ảnh</a></td>
+
+            @if($pro->product_file)
+              @php
+              $filename = $pro->product_file;
+              $name = pathinfo($filename, PATHINFO_FILENAME);
+              $extension = pathinfo($filename, PATHINFO_EXTENSION);
+              @endphp
+              @if($extension=='pdf')
+              <td><a target="_blank" href="{{asset('/uploads/document/'.$pro->product_file)}}">Xem file</a></td>
+              @elseif($extension=='docx')
+              <td><a target="_blank" href="https://view.officeapps.live.com/op/view.aspx?src={{ url('/uploads/document/'.$pro->product_file) }}">Xem file</a></td>
+              @endif
+            @else 
+            <td>Không file</td>
+            @endif
+
             <td>{{ $pro->product_quantity }}</td>
             <td>{{ $pro->product_slug }}</td>
             <td>{{ number_format($pro->product_price,0,',','.') }}đ</td>
-            <td><img src="public/uploads/product/{{ $pro->product_image }}" height="100" width="100"></td>
+            <td>{{ number_format($pro->price_cost,0,',','.') }}đ</td>
+            <td><img src="/uploads/product/{{ $pro->product_image }}" height="100" width="100"></td>
             <td>{{ $pro->category_name }}</td>
             <td>{{ $pro->brand_name }}</td>
 
@@ -93,7 +116,7 @@
         </tbody>
       </table>
     </div>
-    <footer class="panel-footer">
+   {{--  <footer class="panel-footer">
       <div class="row">
         
         <div class="col-sm-5 text-center">
@@ -105,7 +128,7 @@
           </ul>
         </div>
       </div>
-    </footer>
+    </footer> --}}
   </div>
 </div>
 @endsection

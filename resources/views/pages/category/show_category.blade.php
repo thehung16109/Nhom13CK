@@ -1,16 +1,73 @@
 @extends('layout')
-@section('content')
+
+@section('attribute')
+  @include('pages.include.attribute')
+@endsection
+
+@section('content_category')
 <div class="features_items"><!--features_items-->
                        <div class="fb-share-button" data-href="http://localhost/tutorial_youtube/shopbanhanglaravel" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{$url_canonical}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
                        <div class="fb-like" data-href="{{$url_canonical}}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+
                         @foreach($category_name as $key => $name)
                        
                         <h2 class="title text-center">{{$name->category_name}}</h2>
+                        
 
                         @endforeach
+                         <div class="row">
+
+                            <div class="col-md-4">
+                                    
+                                    <label for="amount">Sắp xếp theo</label>
+
+                                    <form>
+                                        @csrf
+
+                                    <select name="sort" id="sort" class="form-control">
+                                        <option value="{{Request::url()}}?sort_by=none">--Lọc theo--</option>
+                                        <option value="{{Request::url()}}?sort_by=tang_dan">--Giá tăng dần--</option>
+                                        <option value="{{Request::url()}}?sort_by=giam_dan">--Giá giảm dần--</option>
+                                        <option value="{{Request::url()}}?sort_by=kytu_az">Lọc theo tên A đến Z</option>
+                                        <option value="{{Request::url()}}?sort_by=kytu_za">Lọc theo tên Z đến A</option>
+                                    </select>
+
+                                    </form>
+                               
+                            </div>
+
+                             <div class="col-md-4">
+                                    
+                                    <label for="amount">Lọc giá theo</label>
+
+                                    <form>
+                                        <div id="slider-range"></div>
+                                        <style type="text/css">
+                                            .style-range p {
+                                                float: left;
+                                                width: 25%;
+                                            }
+                                        </style>
+                                        <div class="style-range">
+                                            <p><input type="text" id="amount_start" readonly style="border:0; color:#f6931f; font-weight:bold;"></p>
+                                            <p><input type="text" id="amount_end" readonly style="border:0; color:#f6931f; font-weight:bold;"></p>
+                                        </div>
+                                        <input type="hidden" name="start_price" id="start_price">
+                                        <input type="hidden" name="end_price" id="end_price">
+
+                                         <br>
+                                         <div class="clearfix"></div>
+                                         <input type="submit" name="filter_price" value="Lọc giá" class="btn btn-sm btn-default">
+                                    </form>
+                               
+                            </div>
+
+
+
+                        </div>
                         @foreach($category_by_id as $key => $product)
                         <a href="{{URL::to('/chi-tiet/'.$product->product_slug)}}">
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                              <div class="product-image-wrapper">
                            
                                 <div class="single-products">
@@ -49,9 +106,9 @@
                         </a>
                         @endforeach
                     </div><!--features_items-->
-                   <ul class="pagination pagination-sm m-t-none m-b-none">
+                  {{--  <ul class="pagination pagination-sm m-t-none m-b-none">
                        {!!$category_by_id->links()!!}
-                    </ul>
+                    </ul> --}}
 
         <!--/recommended_items-->
 @endsection

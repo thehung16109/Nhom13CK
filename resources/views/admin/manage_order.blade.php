@@ -3,7 +3,7 @@
     <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-      Liệt kê đơn hàng
+      Liệt kê tất cả đơn hàng
     </div>
     <div class="row w3-res-tb">
      
@@ -26,6 +26,8 @@
             <th>Mã đơn hàng</th>
             <th>Ngày tháng đặt hàng</th>
             <th>Tình trạng đơn hàng</th>
+            <th>Lý do hủy</th>
+
 
             <th style="width:30px;"></th>
           </tr>
@@ -34,7 +36,7 @@
           @php 
           $i = 0;
           @endphp
-          @foreach($order as $key => $ord)
+          @foreach($getorder as $key => $ord)
             @php 
             $i++;
             @endphp
@@ -42,13 +44,22 @@
             <td><i>{{$i}}</i></label></td>
             <td>{{ $ord->order_code }}</td>
             <td>{{ $ord->created_at }}</td>
+            
             <td>@if($ord->order_status==1)
-                    Đơn hàng mới
-                @else 
-                    Đã xử lý
+                   <span class="text text-success">Đơn hàng mới</span>
+                @elseif($ord->order_status==2)
+                   <span class="text text-primary">Đã xử lý - Đã giao hàng</span>
+                @else
+                  <span class="text text-danger">Đơn hàng đã bị hủy</span>
                 @endif
             </td>
-           
+
+            <td>
+              @if($ord->order_status==3)
+              {{$ord->order_destroy}}
+              @endif
+            </td>
+            
            
             <td>
               <a href="{{URL::to('/view-order/'.$ord->order_code)}}" class="active styling-edit" ui-toggle-class="">
@@ -72,7 +83,7 @@
         </div>
         <div class="col-sm-7 text-right text-center-xs">                
           <ul class="pagination pagination-sm m-t-none m-b-none">
-            {!!$order->links()!!}
+            {!!$getorder->links()!!}
           </ul>
         </div>
       </div>

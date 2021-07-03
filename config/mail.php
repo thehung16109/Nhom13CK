@@ -18,12 +18,13 @@ return [
 
     'driver' => env('MAIL_DRIVER', 'smtp'),
 
+
     'stream' => [
-    'ssl' => [
-        'allow_self_signed' => true,
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-    ],
+        'ssl' => [
+            'allow_self_signed' => true,
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+        ],
     ],
 
     /*
@@ -64,9 +65,10 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hieuchance2018@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'Hieu Tan Tutorial'),
+        'address' => env('MAIL_FROM_ADDRESS', 'nguyenducan1526@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'shopbanhanglaravel'),
     ],
+    
 
     /*
     |--------------------------------------------------------------------------

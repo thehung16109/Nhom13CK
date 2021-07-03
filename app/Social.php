@@ -8,7 +8,7 @@ class Social extends Model
 {
     public $timestamps = false;
     protected $fillable = [
-          'provider_user_id',  'provider',  'user'
+          'provider_user_id',  'provider',  'user','provider_user_email'
     ];
  
     protected $primaryKey = 'user_id';
@@ -17,5 +17,6 @@ class Social extends Model
  	public function login(){
  		return $this->belongsTo('App\Login', 'user');
  	}
+ 	
 
 }

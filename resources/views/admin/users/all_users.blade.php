@@ -62,17 +62,24 @@
                
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
                 <td>{{ $user->admin_name }}</td>
-                <td>{{ $user->admin_email }} <input type="hidden" name="admin_email" value="{{ $user->admin_email }}"></td>
+                <td>
+                  {{ $user->admin_email }} 
+                  <input type="hidden" name="admin_email" value="{{ $user->admin_email }}">
+                  <input type="hidden" name="admin_id" value="{{ $user->admin_id }}">
+                </td>
                 <td>{{ $user->admin_phone }}</td>
                 <td>{{ $user->admin_password }}</td>
+
                 <td><input type="checkbox" name="author_role" {{$user->hasRole('author') ? 'checked' : ''}}></td>
                 <td><input type="checkbox" name="admin_role"  {{$user->hasRole('admin') ? 'checked' : ''}}></td>
                 <td><input type="checkbox" name="user_role"  {{$user->hasRole('user') ? 'checked' : ''}}></td>
-
+              
               <td>
                   
                     
-                 <input type="submit" value="Assign roles" class="btn btn-sm btn-default">
+                 <p><input type="submit" value="Phân quyền" class="btn btn-sm btn-default"></p>
+                 <p><a style="margin:5px 0;" class="btn btn-sm btn-danger" href="{{url('/delete-user-roles/'.$user->admin_id)}}">Xóa user</a></p>
+                  <p><a style="margin:5px 0;" class="btn btn-sm btn-success" href="{{url('/impersonate/'.$user->admin_id)}}">Chuyển quyền</a></p>
                 
               </td> 
 
