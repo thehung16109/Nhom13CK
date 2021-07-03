@@ -88,7 +88,7 @@
         </div>
     </section>
 
-    {{-- <section class="carousel mt-5">
+    <section class="carousel mt-5">
         <div class="container px-0">
             <div class="row container px-0 mx-0">
                 <div class="col-md-6 col-lg-6 col-xl-6 carousel-left item p-0 ">
@@ -420,7 +420,7 @@
             </div>
         </div>
         </div>
-    </footer> --}}
+    </footer>
 
     <button onclick="topFunction()" id="myBtn"><i class="fa fa-arrow-up"></i></button>
 
