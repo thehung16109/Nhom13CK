@@ -4,7 +4,7 @@
 <div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
 							<div class="view-product">
-								<img src="{{URL::to('/public/uploads/product/'.$value->product_image)}}" alt="" />
+								<img src="{{URL::to('/uploads/product/'.$value->product_image)}}" alt="" />
 								<h3>ZOOM</h3>
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -13,9 +13,9 @@
 								    <div class="carousel-inner">
 
 										<div class="item active">
-										  <a href=""><img src="{{URL::to('public/frontend/images/similar1.jpg')}}" alt=""></a>
-										  <a href=""><img src="{{URL::to('public/frontend/images/similar2.jpg')}}" alt=""></a>
-										  <a href=""><img src="{{URL::to('public/frontend/images/similar3.jpg')}}" alt=""></a>
+										  <a href=""><img src="{{URL::to('/frontend/images/similar1.jpg')}}" alt=""></a>
+										  <a href=""><img src="{{URL::to('/frontend/images/similar2.jpg')}}" alt=""></a>
+										  <a href=""><img src="{{URL::to('/frontend/images/similar3.jpg')}}" alt=""></a>
 										</div>
 										
 										
@@ -130,7 +130,7 @@
 										<div class="product-image-wrapper">
 											 <div class="single-products">
 		                                        <div class="productinfo text-center product-related">
-		                                            <img src="{{URL::to('public/uploads/product/'.$lienquan->product_image)}}" alt="" />
+		                                            <img src="{{URL::to('/uploads/product/'.$lienquan->product_image)}}" alt="" />
 		                                            <h2>{{number_format($lienquan->product_price,0,',','.').' '.'VNĐ'}}</h2>
 		                                            <p>{{$lienquan->product_name}}</p>
 		                                         
