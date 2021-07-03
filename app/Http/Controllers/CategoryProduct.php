@@ -255,7 +255,7 @@ public function product_tabs(Request $request){
             <div class="product-image-wrapper">
             <div class="single-products">
             <div class="productinfo text-center">
-            <img src="'.url('public/uploads/product/'.$val->product_image).'" alt="'.$val->product_name.'" />
+            <img src="'.url('/uploads/product/'.$val->product_image).'" alt="'.$val->product_name.'" />
             <h2>'.number_format($val->product_price,0,',','.').' VNĐ</h2>
             <p>'.$val->product_name.'</p>
             </a>

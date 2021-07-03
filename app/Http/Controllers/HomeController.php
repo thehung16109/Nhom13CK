@@ -61,7 +61,7 @@ class HomeController extends Controller
                 <a id="wishlist_producturl'.$pro->product_id.'"  href="'.url('chi-tiet/'.$pro->product_slug).'">
 
 
-                <img id="wishlist_productimage'.$pro->product_id.'" src="'.url('public/uploads/product/'.$pro->product_image).'" alt="'.$pro->product_name.'" />
+                <img id="wishlist_productimage'.$pro->product_id.'" src="'.url('/uploads/product/'.$pro->product_image).'" alt="'.$pro->product_name.'" />
 
                 <h2>'.number_format($pro->product_price,0,',','.').'VNĐ</h2>
                 <p>'.$pro->product_name.'</p>

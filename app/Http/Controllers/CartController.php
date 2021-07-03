@@ -22,7 +22,7 @@ class CartController extends Controller
         echo $output;
     }
     public function hover_cart(){
-        // {{asset('public/uploads/product/12315.jpg')}}
+        
         $cart = count(Session::get('cart'));
 
         $output = '';
@@ -31,7 +31,7 @@ class CartController extends Controller
             $output.='<ul class="hover-cart">';
                                     foreach(Session::get('cart') as $key => $value){
                                         $output.='<li><a href="#">
-                                            <img src="'.asset('public/uploads/product/'.$value['product_image']).'">
+                                            <img src="'.asset('/uploads/product/'.$value['product_image']).'">
                                             <p>'.$value['product_name'].'</p>
                                             <p>'.number_format($value['product_price'],0,',','.').'vnđ</p>
                                             <p>Số lượng: '.$value['product_qty'].'</p>

@@ -11,7 +11,7 @@
 @section('content')
 <div class="features_items"><!--features_items-->
 
-                    <div class="category-tab"><!--category-tab-->
+                    <div class="category-tab"><!--category-tabádasd-->
                         <div class="col-sm-12">
                             <ul class="nav nav-tabs">
                                 @php 

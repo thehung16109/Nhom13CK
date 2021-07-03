@@ -436,7 +436,7 @@ class ProductController extends Controller
             $request->file('upload')->move('public/uploads/ckeditor', $fileName);
    
             $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-            $url = asset('public/uploads/ckeditor/'.$fileName); 
+            $url = asset('/uploads/ckeditor/'.$fileName); 
             $msg = 'Tải ảnh thành công'; 
             $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
             @header('Content-type: text/html; charset=utf-8'); 
