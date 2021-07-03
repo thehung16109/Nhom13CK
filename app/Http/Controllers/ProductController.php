@@ -141,8 +141,9 @@ class ProductController extends Controller
         ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
         ->where('tbl_product.product_slug',$product_slug)->get();
 
+        //-----------------------------------------------------------------------------------
         //Sản phẩm liên quan: sẽ dựa vào danh mục mà lấy những sản phẩm thuộc danh mục đó đưa vào sản phẩm lien quan
-        foreach($details_product as $key => $value){//lấy từng phần tử trong detailProduct
+        foreach($details_product as $key => $value){//lấy từng phần tử trong detailProduct( cũng là toàn bộ sản phẩm)
             $category_id = $value->category_id;//Lấy id của category
                 //seo 
                 $meta_desc = $value->product_desc;
@@ -152,7 +153,7 @@ class ProductController extends Controller
                 //--seo
             }
        
-        $related_product = DB::table('tbl_product') // sản phẩm liên quan
+        $related_product = DB::table('tbl_product') // lấy tất cả sản phẩm trong tlb_product và gán = $related_product với điều kiện là categry_id của product  =  category_id của sản phẩm đang hiện trên giao diện
         ->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
         ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
         ->where('tbl_category_product.category_id',$category_id)->whereNotIn('tbl_product.product_slug',[$product_slug])->orderby(DB::raw('RAND()'))->paginate(3);

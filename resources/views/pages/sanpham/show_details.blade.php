@@ -39,7 +39,8 @@
 								<p>Mã ID: {{$value->product_id}}</p>
 								<img src="images/product-details/rating.png" alt="" />
 								
-								<form action="{{URL::to('/save-cart')}}" method="POST">
+								{{-- //Giở hàng --}}
+								<form action="{{URL::to('/save-cart')}}" method="POST"><!--Click thêm sản phẩm thì sẽ tới trang save-cart-->
 									@csrf
 									<input type="hidden" value="{{$value->product_id}}" class="cart_product_id_{{$value->product_id}}">
 
@@ -75,7 +76,7 @@
 						<div class="col-sm-12">
 							<ul class="nav nav-tabs">
 								<li class="active"><a href="#details" data-toggle="tab">Mô tả</a></li>
-								<li><a href="#companyprofile" data-toggle="tab">Chi tiết sản phẩm</a></li>
+								<li><a href="#companyprofile" data-toggle="tab">Chi tiết Voucher</a></li>
 							
 								<li ><a href="#reviews" data-toggle="tab">Đánh giá</a></li>
 							</ul>
@@ -119,20 +120,26 @@
 						</div>
 					</div><!--/category-tab-->
 	@endforeach
+	{{-- //------------------------------------------------------------------------------------------------------ --}}
+	{{-- //Loop qua từng sản phẩm của category để đưa vào html --}}
 					<div class="recommended_items"><!--recommended_items-->
-						<h2 class="title text-center">Sản phẩm liên quan</h2>
+						<h2 class="title text-center">Voucher liên quan</h2>
 						
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
 								<div class="item active">
-							@foreach($relate as $key => $lienquan)
+							{{-- relate là relate_product bên ProductConntroller truyền qua thông qua with --}}
+							@foreach($relate as $key => $lienquan)<!--lấy ra từng sản phẩm liên quan-->
 									<div class="col-sm-4">
 										<div class="product-image-wrapper">
 											 <div class="single-products">
 		                                        <div class="productinfo text-center product-related">
 		                                            <img src="{{URL::to('/uploads/product/'.$lienquan->product_image)}}" alt="" />
+													<!--gán sản phẩm liên quan lên giao diện.$lienquan->product_image là tên file ảnh-->
 		                                            <h2>{{number_format($lienquan->product_price,0,',','.').' '.'VNĐ'}}</h2>
+													{{-- Lấy giá sản phẩm --}}
 		                                            <p>{{$lienquan->product_name}}</p>
+													{{-- Tên sản phẩm --}}
 		                                         
 		                                        </div>
 		                                      

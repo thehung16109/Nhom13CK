@@ -38,6 +38,7 @@
 							<td class="cart_price">
 								<p>{{number_format($v_content->price).' '.'vnđ'}}</p>
 							</td>
+							{{-- Số lượng sản phẩm --}}
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
 									<form action="{{URL::to('/update-cart-quantity')}}" method="POST">
@@ -48,6 +49,7 @@
 									</form>
 								</div>
 							</td>
+							
 							<td class="cart_total">
 								<p class="cart_total_price">
 									
