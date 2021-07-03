@@ -124,8 +124,6 @@
             </th>
             <th>Tên sản phẩm</th>
             <th>Số lượng kho còn</th>
-            <th>Mã giảm giá</th>
-            <th>Phí ship hàng</th>
             <th>Số lượng</th>
             <th>Giá bán</th>
             <th>Giá gốc</th>
@@ -151,13 +149,6 @@
             <td><i>{{$i}}</i></td>
             <td>{{$details->product_name}}</td>
             <td>{{$details->product->product_quantity}}</td>
-            <td>@if($details->product_coupon!='no')
-              {{$details->product_coupon}}
-              @else 
-              Không mã
-              @endif
-            </td>
-            <td>{{number_format($details->product_feeship ,0,',','.')}}đ</td>
             <td>
 
               <input type="number" min="1" {{$order_status==2 ? 'disabled' : ''}} class="order_qty_{{$details->product_id}}" value="{{$details->product_sales_quantity}}" name="product_sales_quantity">
@@ -194,12 +185,10 @@
               @else 
               @php
               echo 'Tổng giảm :'.number_format($coupon_number,0,',','.').'k'.'</br>';
-              $total_coupon = $total + $details->product_feeship - $coupon_number ;
+              $total_coupon = $subtotal;
 
               @endphp
               @endif
-
-              Phí ship : {{number_format($details->product_feeship,0,',','.')}}đ</br> 
               Thanh toán: {{number_format($total_coupon,0,',','.')}}đ 
           
             </td>
