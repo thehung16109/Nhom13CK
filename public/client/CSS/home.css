@@ -2,292 +2,292 @@
 /* Author: Phung The Hung, 18520808 */
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-size: 16px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
 body {
-  background-image: linear-gradient(
-    185deg,
-    rgba(255, 235, 59, 0.54),
-    rgba(3, 169, 244, 0.26),
-    #ff98004f
-  );
+    background-image: linear-gradient(
+        185deg,
+        rgba(255, 235, 59, 0.54),
+        rgba(3, 169, 244, 0.26),
+        #ff98004f
+    );
 }
 
 .container {
-  max-width: 1440px;
+    max-width: 1440px;
 }
 
 /* NAV bar */
 .mynavbar {
-  height: 48px;
+    height: 48px;
 }
 .navbar-toggler-icon i {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 button.navbar-toggler {
-  border: black solid;
+    border: black solid;
 }
 
 .nav-link {
-  color: black;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 0;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0;
 }
 .nav-link:hover {
-  color: #f68a39;
+    color: #f68a39;
 }
 .nav-link:focus {
-  color: #f68a39;
+    color: #f68a39;
 }
 .nav-link::after {
-  content: "";
-  display: block;
-  height: 1px;
-  width: 0%;
-  background-image: linear-gradient(245deg, red, #ff9800);
-  position: relative;
-  top: 2px;
-  transition: all 0.5s;
+    content: "";
+    display: block;
+    height: 1px;
+    width: 0%;
+    background-image: linear-gradient(245deg, red, #ff9800);
+    position: relative;
+    top: 2px;
+    transition: all 0.5s;
 }
 .nav-item:hover .nav-link::after {
-  width: 100%;
+    width: 100%;
 }
 
 /* End NAVBAR */
 
 /* Seach */
 .search-box {
-  position: relative;
-  height: 30px;
-  width: 30px;
-  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    height: 30px;
+    width: 30px;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 .search-box.active {
-  width: 100%;
+    width: 100%;
 }
 .search-box input {
-  height: 100%;
-  width: 100%;
-  border: none;
-  outline: none;
-  background: transparent;
-  font-size: 14px;
-  border-radius: 50px;
-  padding: 0px 10px;
-  visibility: hidden;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    border-radius: 50px;
+    padding: 0px 10px;
+    visibility: hidden;
 }
 .search-box .search-btn {
-  height: 31px;
-  width: 33px;
-  top: 50%;
-  right: 1px;
-  transform: translateY(-50%);
-  position: absolute;
-  text-align: center;
-  border-radius: 50px;
-  font-size: 18px;
-  background-color: transparent;
-  vertical-align: middle;
-  z-index: 1;
+    height: 31px;
+    width: 33px;
+    top: 50%;
+    right: 1px;
+    transform: translateY(-50%);
+    position: absolute;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 18px;
+    background-color: transparent;
+    vertical-align: middle;
+    z-index: 1;
 }
 .search-box .cancel-btn {
-  height: 31px;
-  width: 33px;
-  top: 50%;
-  right: 1px;
-  transform: translateY(-50%);
-  position: absolute;
-  text-align: center;
-  border-radius: 50px;
-  font-size: 18px;
-  background-color: transparent;
-  display: none;
-  vertical-align: middle;
+    height: 31px;
+    width: 33px;
+    top: 50%;
+    right: 1px;
+    transform: translateY(-50%);
+    position: absolute;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 18px;
+    background-color: transparent;
+    display: none;
+    vertical-align: middle;
 }
 .search-box .cancel-btn.active {
-  z-index: 1;
+    z-index: 1;
 }
 
 /* Link */
 a {
-  color: #f68a39;
+    color: #f68a39;
 }
 
 a:hover {
-  text-decoration: none;
-  color: #f68a39;
+    text-decoration: none;
+    color: #f68a39;
 }
 
 /* Carousel */
 .carousel img {
-  width: 100%;
-  height: 100%;
-  transition: all 0.5s;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s;
 }
 .carousel-left {
-  position: relative;
+    position: relative;
 }
 .carousel h6 {
-  text-transform: uppercase;
-  font-size: 14px;
+    text-transform: uppercase;
+    font-size: 14px;
 }
 .carousel-overlay1 h6 {
-  position: absolute;
-  top: 0;
-  left: 0px;
-  background-color: #f68a39;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    background-color: #f68a39;
 }
 .carousel-overlay h6 {
-  position: absolute;
-  top: 0;
-  left: auto;
-  background-color: #f68a39;
+    position: absolute;
+    top: 0;
+    left: auto;
+    background-color: #f68a39;
 }
 .item {
-  overflow: hidden;
-  border: transparent 1px solid;
+    overflow: hidden;
+    border: transparent 1px solid;
 }
 .item:hover img {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 /*END Carousel */
 
 /* Title */
 .tag-heading {
-  background-color: black;
-  font-size: 16px;
-  height: 25px;
-  width: 220px;
-  text-align: center;
-  vertical-align: middle;
+    background-color: black;
+    font-size: 16px;
+    height: 25px;
+    width: 220px;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .tag-heading a {
-  color: white;
-  font-weight: bold;
+    color: white;
+    font-weight: bold;
 }
 
 .tag-heading a:hover {
-  color: #f68a39;
+    color: #f68a39;
 }
 
 /* Style for Image in list most view */
 img.myimg {
-  border-radius: 20px;
-  height: 300px;
-  width: 100%;
-  box-shadow: 0px 0px 10px #0000005c !important;
-  transition: all 0.5s;
+    border-radius: 20px;
+    height: 300px;
+    width: 100%;
+    box-shadow: 0px 0px 10px #0000005c !important;
+    transition: all 0.5s;
 }
 
 img.myimg:hover {
-  transform: scale(1.04);
+    transform: scale(1.04);
 }
 
 a.titleimg {
-  font-weight: bold;
-  font-size: 16px;
-  color: black;
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
 }
 
 a.titleimg:hover {
-  color: #f68a39;
+    color: #f68a39;
 }
 
 a.tagimg {
-  font-weight: bold;
-  font-size: 14px;
-  color: black;
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
 }
 
 a.tagimg:hover {
-  color: #f68a39;
+    color: #f68a39;
 }
 
 /* Style for Image in list popular */
 img.myimg1 {
-  border: 1px solid #ddd;
-  border-radius: 50px;
-  height: 500px;
-  width: 100%;
-  box-shadow: 0px 0px 10px #0000005c !important;
-  transition: all 0.5s;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    height: 500px;
+    width: 100%;
+    box-shadow: 0px 0px 10px #0000005c !important;
+    transition: all 0.5s;
 }
 img.myimg1:hover {
-  transform: scale(1.04);
+    transform: scale(1.04);
 }
 
 .titleimg1 {
-  text-align: center;
+    text-align: center;
 }
 
 /* Footer */
 .footer {
-  background-color: black;
-  padding: 50px 50px 0 50px;
-  color: white;
+    background-color: black;
+    padding: 50px 50px 0 50px;
+    color: white;
 }
 
 .input-group {
-  margin: 60px 0;
+    margin: 60px 0;
 }
 
 .input-group-text {
-  background-color: #f68a39;
-  color: white;
+    background-color: #f68a39;
+    color: white;
 }
 
 .chinhanh a {
-  color: white;
+    color: white;
 }
 
 .chinhanh a:hover {
-  color: #f68a39;
+    color: #f68a39;
 }
 
 a.lienhe {
-  color: white;
+    color: white;
 }
 
 a.lienhe:hover {
-  color: #f68a39;
+    color: #f68a39;
 }
 
 .footer-item {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .final-footer {
-  border-top: 1px solid white;
-  padding-top: 30px;
+    border-top: 1px solid white;
+    padding-top: 30px;
 }
 
 .final-footer a {
-  color: #f68a39;
+    color: #f68a39;
 }
 
 /* Button scroll to top */
 #myBtn {
-  border: none;
-  background-color: #f68a39;
-  color: white;
-  padding: 12px 16px;
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  z-index: 99;
-  outline: none;
-  cursor: pointer;
-  border-radius: 40px;
+    border: none;
+    background-color: #f68a39;
+    color: white;
+    padding: 12px 16px;
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    outline: none;
+    cursor: pointer;
+    border-radius: 40px;
 }
 
 #myBtn:hover {
-  background-color: #555;
+    background-color: #555;
 }

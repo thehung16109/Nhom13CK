@@ -1,20 +1,20 @@
 /* Author: Le Quang Khai, 19521656 */
 
-*{
+* {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
 }
-body{
-    background:#e3f5f7;
+body {
+    background: #e3f5f7;
 }
 
-.row{
+.row {
     background: white;
     border-top-right-radius: 30px;
-    border-bottom-right-radius:30px ;
+    border-bottom-right-radius: 30px;
 }
-.btn1{
+.btn1 {
     border: none;
     outline: none;
     height: 50px;
@@ -24,12 +24,12 @@ body{
     border-radius: 4px;
     font-weight: bold;
 }
-.btn1:hover{
-    background:white;
+.btn1:hover {
+    background: white;
     border: 1px solid;
-    color:black;
+    color: black;
 }
-.icon{
+.icon {
     height: 60px;
     width: 60px;
 }
