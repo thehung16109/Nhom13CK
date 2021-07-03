@@ -1,0 +1,610 @@
+<!-- Author: Phung The Hung, 18520808 -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Khách sạn</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- wowJS -->
+    <link rel="stylesheet" href="../Others/lib/WOW-master/css/libs/animate.css">
+
+    <!-- Slick -->
+    <link rel="stylesheet" href="../Others/lib/slick/slick-1.8.1/slick/slick.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="../CSS/homestay.css">
+</head>
+
+<body>
+
+    <section id="header">
+        <div class="header">
+            <div class="container header-logo mt-4 px-0">
+                <img src="../images/logo.png" alt="">
+            </div>
+
+            <div class="container-fluid navbar-sticky mt-4">
+                <nav class="navbar navbar-expand-lg container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">
+                            <i class="fas fa-bars"></i>
+                        </span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="./home.html">Trang chủ <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="./homestay.html">HomeStay <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./hotel.html" style="color: #f68a39;">Khách sạn <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./camnangphuot.html">Cẩm nang phượt <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <div class="search-box">
+                                        <input type="text" placeholder="Từ khóa...">
+                                        <div id="search" class="search-btn">
+                                            <a class="nav-link" href="#"><i class="fa fa-search"
+                                                    aria-hidden="true"></i></a>
+                                        </div>
+                                        <div id="cancel" class="cancel-btn">
+                                            <a class="nav-link" href="#"><i class="fas fa-times"
+                                                    aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./login.html"><i class="fas fa-user-circle fa-lg"
+                                            aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <section class="carousel mt-0">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../images/carousel/carrousel-hotel/carousel1.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/carousel/carrousel-hotel/carousel2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/carousel/carrousel-hotel/carousel3.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/carousel/carrousel-hotel/carousel4.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/carousel/carrousel-hotel/carousel5.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+    <!-- home stay -->
+
+
+    <section class="homestay mt-5">
+        <div class="container p-0">
+            <h1 class="mt-5">HOTEL</h1>
+
+            <div class="row">
+                <div class="col-md-8 col-lg-8 col-xl-8 homestay-left ">
+                    <div class="row mb-4 wow bounceInLeft hs-item">
+                        <div class="col-md-5 col-lg-5 col-xl-5 left-img">
+                            <a href="">
+                                <img src="../images/Hotel/1.jpg" alt="">
+                                <div class="homestay-overlay">
+                                    <h6>Homestay</h6>
+                                </div>
+                                <div class="homestay-overlay-2">
+                                    <h3>Voucher 50%</h3>
+                                    <p>Giảm chi phí đi lại 100% và kèm nhiều khuyến mãi khác</p>
+                                    <p>Chi tiết ở cuối bài viết</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-7 col-lg-7 col-xl-7">
+                            <a href="">
+                                <h4> Khám phá khu du lịch hồ Đồng Đò Sóc Sơn đang hot gần đây! </h4>
+                            </a>
+                            <p> Du lịch hồ Đồng Đò Sóc Sơn trở nên thu hút khách du lịch hơn bao giờ hết. Khi ta càng
+                                bận rộn và
+                                ít có thời gian nghỉ ngơi thì những chuyến đi ngắn ngày ở ngoại thành được ưu tiên lựa
+                                chọn.
+                                Cùng Homestay Review ghé thăm hồ Đồng Đò để xem…</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4 wow bounceInLeft hs-item">
+                        <div class="col-md-5 col-lg-5 col-xl-5 left-img">
+                            <a href="">
+                                <img src="../images/Hotel/2.jpg" alt="">
+                                <div class="homestay-overlay">
+                                    <h6>Homestay</h6>
+                                </div>
+                                <div class="homestay-overlay-2">
+                                    <h3>Voucher 50%</h3>
+                                    <p>Giảm chi phí đi lại 100% và kèm nhiều khuyến mãi khác</p>
+                                    <p>Chi tiết ở cuối bài viết</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-7 col-lg-7 col-xl-7">
+                            <a href="./review.html">
+                                <h4> Review Tula Hardin Homestay Thơ Mộng Ngay Ngoại Thành Hà Nội </h4>
+                            </a>
+                            <p> Tula Hardin homestay đặc biệt không chỉ ở tên gọi mà còn bởi không gian nơi đây. Địa
+                                điểm lý tưởng cho chuyến nghỉ dưỡng cuối tuần, hãy cùng Homestay Review khám phá nhé!
+                                Địa chỉ: Thôn Vật Lại, xã Phú Minh, huyện Kỳ Sơn, Hòa Bình Tula…</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4 wow bounceInLeft hs-item">
+                        <div class="col-md-5 col-lg-5 col-xl-5 left-img">
+                            <a href="">
+                                <img src="../images/Hotel/3.jpg" alt="">
+                                <div class="homestay-overlay">
+                                    <h6>Homestay</h6>
+                                </div>
+                                <div class="homestay-overlay-2">
+                                    <h3>Voucher 50%</h3>
+                                    <p>Giảm chi phí đi lại 100% và kèm nhiều khuyến mãi khác</p>
+                                    <p>Chi tiết ở cuối bài viết</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-7 col-lg-7 col-xl-7">
+                            <a href="">
+                                <h4> Review Casa De Ruby Villa Nghỉ Dưỡng Hiện Đại, Tiện Nghi! </h4>
+                            </a>
+                            <p> Khám phá Casa De Ruby villa mới toanh tại Sóc Sơn cùng Homestay Review chúng mình bạn
+                                nhé! Tránh xa thành thị đầy khói bụi, chúng mình cùng nhau tận hưởng một chuyến nghỉ
+                                dưỡng đầy bình yên! Địa chỉ: Thôn Lâm Trường, xã Minh Phú, Sóc Sơn,…</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4 wow bounceInLeft hs-item">
+                        <div class="col-md-5 col-lg-5 col-xl-5 left-img">
+                            <a href="">
+                                <img src="../images/Hotel/4.jpg" alt="">
+                                <div class="homestay-overlay">
+                                    <h6>Homestay</h6>
+                                </div>
+                                <div class="homestay-overlay-2">
+                                    <h3>Voucher 50%</h3>
+                                    <p>Giảm chi phí đi lại 100% và kèm nhiều khuyến mãi khác</p>
+                                    <p>Chi tiết ở cuối bài viết</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-7 col-lg-7 col-xl-7">
+                            <a href="">
+                                <h4> Review Chang’s Village Đà Lạt – Ngôi Làng Đầy Yên Bình Thảnh Thơi </h4>
+                            </a>
+                            <p> Phát hiện một “ngôi làng" đầy yên bình ở Đà Lạt mang tên Chang's Village. Những căn nhà
+                                yên bình với mức giá phải chăng, phục vụ chu đáo. Để Homestay Review đưa bạn đi tham
+                                quan khu làng đặc biệt này nhé! Địa chỉ: Làng Hoa Vạn Thành,…</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4 wow bounceInLeft hs-item d-none">
+                        <div class="col-md-5 col-lg-5 col-xl-5 left-img">
+                            <a href="">
+                                <img src="../images/Hotel/5.jpg" alt="">
+                                <div class="homestay-overlay">
+                                    <h6>Homestay</h6>
+                                </div>
+                                <div class="homestay-overlay-2">
+                                    <h3>Voucher 50%</h3>
+                                    <p>Giảm chi phí đi lại 100% và kèm nhiều khuyến mãi khác</p>
+                                    <p>Chi tiết ở cuối bài viết</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-7 col-lg-7 col-xl-7">
+                            <a href="">
+                                <h4> V House Mộc Châu – Homestay Thơ Mộng Giữa Thảo Nguyên </h4>
+                            </a>
+                            <p> Tận hưởng không khí trong lành, ngắm hoa ban nở trắng, hít căng khí trời đầy thư thái
+                                tại V House Mộc Châu. Còn chờ gì mà không “xách ba lô lên và đi" một chuyến cùng
+                                Homestay Review chúng mình nào các bạn ơi! Địa chỉ: Tiểu khu Xưởng…</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4 wow bounceInLeft hs-item d-none">
+                        <div class="col-md-5 col-lg-5 col-xl-5 left-img">
+                            <a href="">
+                                <img src="../images/Hotel/6.jpg" alt="">
+                                <div class="homestay-overlay">
+                                    <h6>Homestay</h6>
+                                </div>
+                                <div class="homestay-overlay-2">
+                                    <h3>Voucher 50%</h3>
+                                    <p>Giảm chi phí đi lại 100% và kèm nhiều khuyến mãi khác</p>
+                                    <p>Chi tiết ở cuối bài viết</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-7 col-lg-7 col-xl-7">
+                            <a href="">
+                                <h4> Top 10 Homestay Gần Hà Nội Giá Rẻ Vi Vu Cuối Năm! </h4>
+                            </a>
+                            <p> Cuối năm nhu cầu du lịch ngắn ngày tăng vọt, nếu bạn đang cần tìm một căn villa hay
+                                homestay gần Hà Nội giá rẻ thì tham khảo ngay Top 10 homestay dưới đây cho Homestay
+                                Review chúng mình tổng hợp nhé! Papa's House - Sóc Sơn (đặt…</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4 wow bounceInLeft hs-item d-none">
+                        <div class="col-md-5 col-lg-5 col-xl-5 left-img">
+                            <a href="">
+                                <img src="../images/Hotel/7.jpg" alt="">
+                                <div class="homestay-overlay">
+                                    <h6>Homestay</h6>
+                                </div>
+                                <div class="homestay-overlay-2">
+                                    <h3>Voucher 50%</h3>
+                                    <p>Giảm chi phí đi lại 100% và kèm nhiều khuyến mãi khác</p>
+                                    <p>Chi tiết ở cuối bài viết</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-7 col-lg-7 col-xl-7">
+                            <a href="">
+                                <h4> Khám Phá Một Mí Homestay Ninh Thuận Cực Xinh Giá Chưa Đến 100k/ Người </h4>
+                            </a>
+                            <p> Đến Ninh Thuận không thể không ghé Một Mí homestay. Ngôi nhà xinh xắn với những góc
+                                decor ấn tượng, mức giá phải chăng sẽ khiến bạn hài lòng hơn bao giờ hết. Cùng Homestay
+                                Review ghé thăm căn homestay “mới thay áo” này nhé! Địa chỉ:…</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4 wow bounceInLeft hs-item d-none">
+                        <div class="col-md-5 col-lg-5 col-xl-5 left-img">
+                            <a href="">
+                                <img src="../images/Hotel/8.jpg" alt="">
+                                <div class="homestay-overlay">
+                                    <h6>Homestay</h6>
+                                </div>
+                                <div class="homestay-overlay-2">
+                                    <h3>Voucher 50%</h3>
+                                    <p>Giảm chi phí đi lại 100% và kèm nhiều khuyến mãi khác</p>
+                                    <p>Chi tiết ở cuối bài viết</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-7 col-lg-7 col-xl-7">
+                            <a href="">
+                                <h4> Review Mộc Châu Hobbiton – Khu Nghỉ Dưỡng Cổ Tích Ở Mộc Châu! </h4>
+                            </a>
+                            <p> Gây ấn tượng bởi thiết kế độc đáo, Mộc Châu Hobbiton đang thu hút sự chú ý của khách du
+                                lịch ghi ghé tới đây. Cùng Homestay Review khám phá vẻ độc lạ của khu nghỉ dưỡng có
+                                1-0-2 này nhé!Địa chỉ: Ngã 4 Trường Giang, tiểu khu 70,Thị trấn…</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4 wow bounceInLeft hs-item d-none">
+                        <div class="col-md-5 col-lg-5 col-xl-5 left-img">
+                            <a href="">
+                                <img src="../images/Hotel/9.jpg" alt="">
+                                <div class="homestay-overlay">
+                                    <h6>Homestay</h6>
+                                </div>
+                                <div class="homestay-overlay-2">
+                                    <h3>Voucher 50%</h3>
+                                    <p>Giảm chi phí đi lại 100% và kèm nhiều khuyến mãi khác</p>
+                                    <p>Chi tiết ở cuối bài viết</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-7 col-lg-7 col-xl-7">
+                            <a href="">
+                                <h4> The Hobbit Bungalow – Nhà “Người Lùn” Độc Đáo Giữa Lòng Đà Lạt </h4>
+                            </a>
+                            <p> Làng Hobbit hay còn gọi là The Hobbit Bungalow là một trong những homestay được săn lùng
+                                nhiều nhất ở Đà Lạt! Cùng Homestay Review khám phá nét độc đáo của khu làng gỗ đặc biệt
+                                này nhé! Địa chỉ: Lô 16 KQH 51 Đống Đa, Đà Lạt Đà Lạt, Lâm…</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4 wow bounceInLeft hs-item d-none">
+                        <div class="col-md-5 col-lg-5 col-xl-5 left-img">
+                            <a href="">
+                                <img src="../images/Hotel/10.jpg" alt="">
+                                <div class="homestay-overlay">
+                                    <h6>Homestay</h6>
+                                </div>
+                                <div class="homestay-overlay-2">
+                                    <h3>Voucher 50%</h3>
+                                    <p>Giảm chi phí đi lại 100% và kèm nhiều khuyến mãi khác</p>
+                                    <p>Chi tiết ở cuối bài viết</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-7 col-lg-7 col-xl-7">
+                            <a href="">
+                                <h4> The Hobbit Bungalow – Nhà “Người Lùn” Độc Đáo Giữa Lòng Đà Lạt </h4>
+                            </a>
+                            <p> Làng Hobbit hay còn gọi là The Hobbit Bungalow là một trong những homestay được săn lùng
+                                nhiều nhất ở Đà Lạt! Cùng Homestay Review khám phá nét độc đáo của khu làng gỗ đặc biệt
+                                này nhé! Địa chỉ: Lô 16 KQH 51 Đống Đa, Đà Lạt Đà Lạt, Lâm…</p>
+                        </div>
+                    </div>
+                    <button class="btn" id="btnXemThem" onclick=xemThem()>Xem thêm</button>
+                </div>
+
+
+                <div class="col-md-4 col-lg-4 col-xl-4 homestay-right">
+                    <h4 class="mb-5">Bài viết gần đây</h4>
+                    <div class="ht-right-item">
+                        <div class="row " style="padding: 0 16px;">
+                            <img src="../images/Lastest post/1.jpg" alt="">
+                            <h4>Villa Tại Resort Đại Lải – Tam Đảo Đẳng Cấp 5 Sang Chảnh</h4>
+                            <p>Resort Đại Lải được biết đến là khu nghỉ dưỡng đứng trong top 10 thế giới. Mùa hè này
+                                villa tại resort Đại Lải -…</p>
+                        </div>
+                    </div>
+
+                    <div class="ht-right-item">
+                        <div class="row " style="padding: 0 16px;">
+                            <img src="../images/Lastest post/2.jpg" alt="">
+                            <h4>Hygge House Homestay Hà Nội – Khu Nhà Gỗ Độc Đáo Trong “Rừng”</h4>
+                            <p>Hygge House là một trong số những căn homestay Hà Nội gần Tây Hồ cực đẹp lại gần các điểm
+                                vui chơi. Ghé thăm Hà -…</p>
+                        </div>
+                    </div>
+
+                    <div class="ht-right-item">
+                        <div class="row " style="padding: 0 16px;">
+                            <img src="../images/Lastest post/3.jpg" alt="">
+                            <h4>Homestay Ninh Bình Lý Tưởng Có View Vừa Đẹp, Vừa Rẻ</h4>
+                            <p>Thay vì lựa chọn khách sạn làm địa điểm trú chân khi đến Ninh Bình thì một số khách du
+                                lịch lại chọn Homestay. -…</p>
+                        </div>
+                    </div>
+
+                    <div class="ht-right-item">
+                        <div class="row " style="padding: 0 16px;">
+                            <img src="../images/Lastest post/4.jpg" alt="">
+                            <h4>Homestay Tam Đảo “Giá Rẻ”, Làm Việc Thiếu Chuyên Nghiệp!</h4>
+                            <p>Homestay Tam Đảo và chất lượng dịch vụ” là chủ đề không còn xa lạ gì với mọi khách du
+                                lịch khi tới thăm miền -…</p>
+                        </div>
+                    </div>
+
+                    <div class="ht-right-item">
+                        <div class="row " style="padding: 0 16px;">
+                            <img src="../images/Lastest post/5.jpg" alt="">
+                            <h4>Stella Mộc Châu – Homestay Sắc Màu</h4>
+                            <p>Mộc Châu là điểm du lịch hấp dẫn của Miền Bắc, đi du lịch Mộc Châu vào mùa hè hay mùa
+                                đông. Ngày sương -…</p>
+                        </div>
+                    </div>
+
+                    <div class="ht-right-item">
+                        <div class="row " style="padding: 0 16px;">
+                            <img src="../images/Lastest post/6.jpg" alt="">
+                            <h4>Mèo’s House Đà Lạt – Căn Biệt Thự Đặt Biệt Dành Cho “Team Con Sen”</h4>
+                            <p>Nếu bạn đang cần tìm một căn homestay Đà Lạt thì nhất định không thể bỏ qua Mèo’s House.
+                                Một căn -…</p>
+                        </div>
+                    </div>
+
+                    <div class="ht-right-item">
+                        <div class="row " style="padding: 0 16px;">
+                            <img src="../images/Lastest post/7.jpg" alt="">
+                            <h4>Garden Hostel Đà Lạt – Khu Vườn Dành Cho Những Người Yêu Sự An Tĩnh</h4>
+                            <p>Trút bỏ hết những mệt mỏi của cuộc sống thường ngày, cùng Homestay Review ghé thăm Đà Lạt
+                                Garden -…</p>
+                        </div>
+                    </div>
+
+                    <div class="ht-right-item">
+                        <div class="row " style="padding: 0 16px;">
+                            <img src="../images/Lastest post/8.jpg" alt="">
+                            <h4>Review Stella Mộc Châu – Khu Bungalow Nhiều Sắc Màu Độc Đáo</h4>
+                            <p>Mùa đông tới khách du lịch lại ghé đến Mộc Châu để ngắm hoa mận nhiều hơn. Cũng Homestay
+                                Review -…</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer text-white pt-5 pb-4 mt-4">
+        <div class="container text-center text-md-left">
+            <div class="row text-center text-md-left">
+                <div class="col-md-4 col-lg-4 col-xl-4">
+                    <h3 class="mb-5">About us</h3>
+                    <p>Chuyên trang Review & đánh giá các homestay - hostel - resort mới nhất, có view đẹp nhất với chi
+                        phí phải chăng....</p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                        <div class="input-group-append">
+                            <span class="input-group-text">Tìm kiếm</span>
+                        </div>
+                    </div>
+                    <div class="chinhanh">
+                        <span>Chi nhánh: </span>
+                        <a href="">Đà Lạt</a>
+                        <a href="">Hà Nội</a>
+                        <a href="">Sài Gòn</a>
+                    </div>
+                    <a class="lienhe" href="">Liên hệ truyền thông quảng cáo: 0999999999</a>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-xl-4">
+                    <h3 class="mb-5">Home stay miền bắc</h3>
+                    <div class="row footer-item">
+                        <div class="col-md-3">
+                            <img src="../images/footer/1.jpeg" alt="">
+                        </div>
+                        <div class="col-md-9 col-lg-9 col-xl-9">
+                            <h5>Homestay Đà Bắc</h5>
+                            <p>Thiết kế đậm hồn dân tộc.</p>
+                        </div>
+                    </div>
+                    <div class="row footer-item">
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                            <img src="../images/footer/2.jpg" alt="">
+                        </div>
+                        <div class="col-md-9 col-lg-9 col-xl-9">
+                            <h5>Homestay Hoa Ban</h5>
+                            <p>Lối kiến trúc của người Thái.</p>
+                        </div>
+                    </div>
+                    <div class="row footer-item">
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                            <img src="../images/footer/3.jpg" alt="">
+                        </div>
+                        <div class="col-md-9 col-lg-9 col-xl-9">
+                            <h5>Homestay Green Ribbon </h5>
+                            <p>Không gian sống hiện đại.</p>
+                        </div>
+                    </div>
+                    <div class="row footer-item">
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                            <img src="../images/footer/4.jpg" alt="">
+                        </div>
+                        <div class="col-md-9 col-lg-9 col-xl-9">
+                            <h5>Homestay Black Swan</h5>
+                            <p>Thiết kế vô cùng mới lạ.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-4 col-xl-4">
+                    <h3 class="mb-5">Home stay miền nam</h3>
+                    <div class="row footer-item">
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                            <img src="../images/footer/5.jpg" alt="">
+                        </div>
+                        <div class="col-md-9 col-lg-9 col-xl-9">
+                            <h5>Homestay One love</h5>
+                            <p>Không gian cổ điển với chất liệu gỗ.</p>
+                        </div>
+                    </div>
+                    <div class="row footer-item">
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                            <img src="../images/footer/6.jpg" alt="">
+                        </div>
+                        <div class="col-md-9 col-lg-9 col-xl-9">
+                            <h5>Homestay Ecolodge</h5>
+                            <p>View đẹp nhất Phú Quốc.</p>
+                        </div>
+                    </div>
+                    <div class="row footer-item">
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                            <img src="../images/footer/7.jpg" alt="">
+                        </div>
+                        <div class="col-md-9 col-lg-9 col-xl-9">
+                            <h5>Homestay Dylan</h5>
+                            <p>Thu hút ánh nhìn của du khách.</p>
+                        </div>
+                    </div>
+                    <div class="row footer-item">
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                            <img src="../images/footer/8.jpg" alt="">
+                        </div>
+                        <div class="col-md-9 col-lg-9 col-xl-9">
+                            <h5>Homestay Lotus</h5>
+                            <p>Không gian với hương vị của biển cả.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid final-footer">
+            <div class="container d-flex justify-content-between">
+                <p>© 2017 - All Rights Reserved.</p>
+                <p>Website Design: <a href="">Homestay Review</a></p>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <button onclick="topFunction()" id="myBtn"><i class="fa fa-arrow-up"></i></button>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!-- wowjs -->
+    <script src="../Others/lib/WOW-master/wow/wow.min.js"></script>
+    <script>
+        wow = new WOW(
+            {
+                boxClass: 'wow',      // default
+
+            }
+        )
+        wow.init();
+    </script>
+    <script src="../JS/homestay.js"></script>
+
+    <!-- Slick -->
+    <script src="../Others/lib/slick/slick-1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(".slider-nav").slick({
+            autoplay: false,
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            prevArrow: '<i class="fa fa-angle-left left"></i>',
+            nextArrow: '<i class="fa fa-angle-right right"></i>'
+        });
+
+    </script>
+
+    <!-- background -->
+</body>
+
+</html>
