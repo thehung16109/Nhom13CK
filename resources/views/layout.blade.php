@@ -266,7 +266,7 @@
                           
                         }
                  </style>
-                <div class="col-md-12">
+                {{-- <div class="col-md-12">
                     <h3 class="doitac">Đối tác của chúng tôi</h3>
                     <div class="owl-carousel owl-theme">
                         @foreach($icons_doitac as $key => $doitac)
@@ -277,7 +277,7 @@
                         @endforeach
                     </div>         
                 </div>
-                
+                 --}}
             </div>
         </div>
     </section>

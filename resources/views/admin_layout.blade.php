@@ -259,13 +259,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<section class="wrapper">
         @yield('admin_content')
     </section>
- <!-- footer -->
-		  <div class="footer">
-			<div class="wthree-copyright">
-			  <p>Các bạn xem hướng dẫn tạo project  : <a target="_blank" href="https://www.youtube.com/watch?v=CjA79XhHVQI&list=PLWTu87GngvNxpWN6FVuEcS-YvFNq6RnqG">tại đây nhé</a></p>
-			</div>
-		  </div>
-  <!-- / footer -->
+
 </section>
 <!--main content end-->
 </section>
@@ -384,56 +378,7 @@ CKEDITOR.replace('my-editor', options);
     })
 </script>
 <!-----------------List đối tác-------------------->
-<script type="text/javascript">
 
- 
-    list_doitac();
-    function list_doitac(){
-
-          $.ajax({
-                url:"{{url('/list-doitac')}}",
-                method:"GET",
-                success:function(data)
-                    {
-                        $('#list_doitac').html(data);
-                    }   
-            });    
-    }
-    $('.add-doitac').click(function(){
-       
-         var name = $('#name_doitac').val();
-         var link = $('#link_doitac').val();
-         var image = $('#image_doitac')[0].files[0];
-         var form_data = new FormData();
-
-            form_data.append('file',image);
-            form_data.append('name',name);
-            form_data.append('link',link);
-           
-    
-
-
-       $.ajax({
-                url:"{{url('/add-doitac')}}",
-                method:"POST",
-                headers:{
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                contentType: false,
-                cache: false,
-                processData: false,
-
-                data:form_data,
-                success:function(data)
-                    {
-                       alert('Thêm đối tác thành công');
-                       list_doitac();
-                       
-                        
-                    }   
-            });    
-    })
-</script>
 <script type="text/javascript">
     $('.btn-delete-document').click(function(){
 

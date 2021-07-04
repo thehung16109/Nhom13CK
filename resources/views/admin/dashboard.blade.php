@@ -13,7 +13,6 @@
 
 		<form autocomplete="off">
 			@csrf
-
 			<div class="col-md-2">
 				<p>Từ ngày: <input type="text" id="datepicker" class="form-control"></p>
 

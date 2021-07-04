@@ -94,49 +94,6 @@
                         </div>
                     </section>
 
-                     <section class="panel">
-                        <header class="panel-heading">
-                           Cập nhật thông tin đối tác
-                        </header>
-                         <?php
-                            $message = Session::get('message');
-                            if($message){
-                                echo '<span class="text-alert">'.$message.'</span>';
-                                Session::put('message',null);
-                            }
-                            ?>
-                        <div class="panel-body">
-
-                            <div class="position-center">
-                         
-                                <form role="form" id="form-nut" enctype="multipart/form-data">
-                                    {{ csrf_field() }}
-
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Tên đối tác</label>
-                                    <input type="text" name="name" id="name_doitac" class="form-control">
-                                   
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Link đối tác</label>
-                                      <input type="text" name="link" id="link_doitac" class="form-control">
-                                </div>
-                               
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Hình ảnh đối tác</label>
-                                    <input type="file" name="info_image" class="form-control" id="image_doitac">
-                                   
-                                </div>
-                                <button type="button" name="add_info" class="btn btn-info add-doitac">Thêm đối tác</button>
-                                </form>
-                          
-                            </div>
-                            <div class="position-center">
-                                <div id="list_doitac"></div>
-                            </div>
-
-                        </div>
-                    </section>
-
+                     
             </div>
 @endsection
