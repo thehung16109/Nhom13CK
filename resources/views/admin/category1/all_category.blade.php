@@ -53,26 +53,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($all_category as $key => $cate_pro)
+                            @foreach ($all_category as $key => $cate)
                                 <tr>
                                     <td>
                                         <label class="i-checks">
                                             <input type="checkbox"><i></i>
                                         </label>
                                     </td>
-                                    <td>{{ $cate_pro->category_name }}</td>
+                                    <td>{{ $cate->category_name }}</td>
                                     <td>
-                                        <?php if ($cate_pro->status == 0) { ?>
-                                        <a href="{{URL::to('/unactive-category1/'.$cate_pro->category_id)}}"><span class="fa-eye-slash-style fa fa-eye-slash"></span></a>
+                                        <?php if ($cate->status == 0) { ?>
+                                        <a href="{{URL::to('/unactive-category1/'.$cate->category_id)}}"><span class="fa-eye-slash-style fa fa-eye-slash"></span></a>
                                         <?php } else { ?>
-                                        <a href="{{URL::to('/active-category1/'.$cate_pro->category_id)}}"><span class="fa-eye-style fa fa-eye"></span></a>
+                                        <a href="{{URL::to('/active-category1/'.$cate->category_id)}}"><span class="fa-eye-style fa fa-eye"></span></a>
                                         <?php } ?>
                                     </td>
                                     <td>
-                                        <a href="{{URL::to('/edit-category1/'.$cate_pro->category_id)}}">
+                                        <a href="{{URL::to('/edit-category1/'.$cate->category_id)}}">
                                             <i class="fa fa-pencil-square-o text-success text-active" style="font-size: 20px"></i>
                                         </a>
-                                        <a onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này?')" href="{{URL::to('/delete-category1/'.$cate_pro->category_id)}}">
+                                        <a onclick="return confirm('Bạn chắc chắn muốn xóa danh mục này?')" href="{{URL::to('/delete-category1/'.$cate->category_id)}}">
                                           <i class="fa fa-times text-danger text" style="font-size: 20px"></i>
                                       </a>
                                     </td>

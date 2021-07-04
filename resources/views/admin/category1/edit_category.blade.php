@@ -5,6 +5,7 @@
         <h3 class="title">Danh mục</h3>
         <div class="x_panel">
             <div class="x_content">
+                {{-- @foreach ($edit_category as $key => $edit_value) --}}
                 <form class="" action="{{ URL::to('/update-category1/'.$edit_category->category_id) }}" method="post" novalidate>
                     {{ csrf_field() }}
                     <span class="section">Cập nhật danh mục</span>
@@ -39,6 +40,7 @@
                         <button type="submit" name="update_category" class="btn btn-primary">Cập nhật</button>
                     </div>
                 </form>
+                {{-- @endforeach --}}
             </div>
         </div>
     </div>

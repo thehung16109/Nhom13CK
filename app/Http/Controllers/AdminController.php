@@ -8,6 +8,7 @@ use DB;
 use Session;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
+use App\Admin1;
 session_start();
 /* End Phượng */
 
@@ -36,42 +37,56 @@ class AdminController extends Controller
     }
 
     public function show_dashboard1(){
-        $this->AuthLogin1();
+        // $this->AuthLogin1();
         return view('admin.dashboard1');
     }
 
     public function dashboard1(Request $request){
-        $admin_email = $request->admin_email;
-        $admin_password = md5($request->admin_password);
+        $data = $request->all();
+        $admin_email = $data['admin_email'];
+        $admin_password = md5($data['admin_password']);
 
-        $result = DB::table('tbl_admin1')->where('admin_email', $admin_email)->where('admin_password', $admin_password)->first();
-
-        if($result) {
-            Session::put('admin_name', $result->admin_name);
-            Session::put('admin_id', $result->admin_id);
+        $admin = Admin1::where('admin_email', $admin_email)->where('admin_password', $admin_password)->first();
+        $admin_count = $admin->count();
+        if($admin_count){
+            Session::put('admin_name', $admin->admin_name);
+            Session::put('admin_id', $admin->admin_id);
             return Redirect::to('/dashboard1');
-        }
-        else {
+        } else {
             Session::put('message', 'Mật khẩu hặc tài khoản đã nhập không chính xác. Mời nhập lại.');
             return Redirect::to('/admin1');
         }
+        // $admin_email = $request->admin_email;
+        // $admin_password = md5($request->admin_password);
+
+        // $result = DB::table('tbl_admin1')->where('admin_email', $admin_email)->where('admin_password', $admin_password)->first();
+
+        // if($result) {
+        //     Session::put('admin_name', $result->admin_name);
+        //     Session::put('admin_id', $result->admin_id);
+        //     return Redirect::to('/dashboard1');
+        // }
+        // else {
+        //     Session::put('message', 'Mật khẩu hặc tài khoản đã nhập không chính xác. Mời nhập lại.');
+        //     return Redirect::to('/admin1');
+        // }
     }
 
     public function logout1(){
-        $this->AuthLogin1();
+        // $this->AuthLogin1();
         Session::put('admin_name', null);
         Session::put('admin_id', null);
         return Redirect::to('/admin1');
     }
 
-    public function AuthLogin1(){
-        $admin_id = Session::get('admin_id');
-        if($admin_id) {
-            return Redirect::to('dashboard1');
-        } else {
-            return Redirect::to('admin1')->send();
-        }
-    }
+    // public function AuthLogin1(){
+    //     $admin_id = Session::get('admin_id');
+    //     if($admin_id) {
+    //         return Redirect::to('dashboard1');
+    //     } else {
+    //         return Redirect::to('admin1')->send();
+    //     }
+    // }
     /* End Phượng */
 
 
