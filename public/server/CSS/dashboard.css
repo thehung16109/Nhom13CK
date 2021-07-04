@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.title {
+    text-align: center; 
+    color:blue;
+    font-size: 300%;
+    font-weight: bold;
+}
+
+.i-checks {
+    margin: auto;
+}
+
+.fa-eye-style {
+    color:blue;
+    font-size: 150%;
+}
+
+.fa-eye-slash-style {
+    font-size: 150%;
+}
