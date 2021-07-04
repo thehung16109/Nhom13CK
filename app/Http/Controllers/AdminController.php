@@ -1,10 +1,17 @@
 <?php
 
+/* Phượng */
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
 use Session;
+use App\Http\Requests;
+use Illuminate\Support\Facades\Redirect;
+session_start();
+/* End Phượng */
+
+
 use App\Social;
 use App\SocialCustomers;
 use Socialite;
@@ -19,12 +26,45 @@ use Carbon\Carbon;
 
 use Auth;
 use App\Order;
-use App\Http\Requests;
-use Illuminate\Support\Facades\Redirect;
 use Validator;
 use App\Rules\Captcha; 
 class AdminController extends Controller
 {
+    /* Phượng */
+    public function index1() {
+        return view('admin_login1');
+    }
+
+    public function show_dashboard1(){
+        return view('admin.dashboard1');
+    }
+
+    public function dashboard1(Request $request){
+        $admin_email = $request->admin_email;
+        $admin_password = md5($request->admin_password);
+
+        $result = DB::table('tbl_admin1')->where('admin_email', $admin_email)->where('admin_password', $admin_password)->first();
+
+        if($result) {
+            Session::put('admin_name', $result->admin_name);
+            Session::put('admin_id', $result->admin_id);
+            return Redirect::to('/dashboard1');
+        }
+        else {
+            Session::put('message', 'Mật khẩu hặc tài khoản đã nhập không chính xác. Mời nhập lại.');
+            return Redirect::to('/admin1');
+        }
+    }
+
+    public function logout1(){
+        Session::put('admin_name', null);
+        Session::put('admin_id', null);
+        return Redirect::to('/admin1');
+    }
+    /* End Phượng */
+
+
+
     public function login_google(){
         return Socialite::driver('google')->redirect();
     }

@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use Session;
 use App\Http\Requests;
+use Session;
+use Illuminate\Support\Facades\Redirect;
 use Mail;
 use App\CatePost;
 use App\CategoryProductModel;
@@ -14,11 +15,18 @@ use App\Product;
 use App\Icons;
 
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Redirect;
+
 session_start();
 
 class HomeController extends Controller
 {
+    /* Phượng */
+    public function index1() {
+        return view('pages.home1');
+    }
+    /* End Phượng */
+
+
     public function error_page(){
         return view('errors.404');
     }
