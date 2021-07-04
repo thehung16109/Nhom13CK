@@ -13,17 +13,17 @@
     <title>HomeStay Review</title>
 
     <!-- Bootstrap -->
-    <link href="server/Others/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../server/Others/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="server/Others/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../server/Others/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="server/Others/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="../server/Others/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- Dropzone.js -->
-    <link href="server/Others/vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+    <link href="../server/Others/vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="server/CSS/custom.min.css" rel="stylesheet">
-    <link href="server/CSS/dashboard.css" rel="stylesheet">
+    <link href="../server/CSS/custom.min.css" rel="stylesheet">
+    <link href="../server/CSS/dashboard.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -32,14 +32,14 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="./index.html" class="site_title"><img src="server/images/logo.png" alt="" ></a>
+              <a href="./index.html" class="site_title"><img src="../server/images/logo.png" alt="" ></a>
             </div>
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="server/images/1.jpg" alt="..." class="img-circle profile_img">
+                <img src="../server/images/1.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Xin chào,</span>
@@ -66,7 +66,13 @@
                       <li><a href="{{URL::to('/add-category1')}}">Thêm danh mục</a></li>
                       <li><a href="{{URL::to('/all-category1')}}">Liệt kê danh mục</a></li>              
                     </ul>
-                  </li>  
+                  </li> 
+                  <li><a><i class="fa fa-map-marker"></i>Địa điểm<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">                     
+                      <li><a href="{{URL::to('/add-location1')}}">Thêm địa điểm</a></li>
+                      <li><a href="{{URL::to('/all-location1')}}">Liệt kê điạ điểm</a></li>              
+                    </ul>
+                  </li>   
                   <li><a><i class="fa fa-edit"></i>Danh mục bài review<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">                     
                       <li><a href="./form_validation.html">Thêm bài review</a></li>
@@ -112,7 +118,7 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                    <img src="server/images/1.jpg" alt="">
+                    <img src="../server/images/1.jpg" alt="">
                     <span>
                         <?php
                         $name = Session::get('admin_name');
@@ -136,7 +142,7 @@
                   <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
                     <li class="nav-item">
                       <a class="dropdown-item">
-                        <span class="image"><img src="server/images/1.jpg" alt="Profile Image" /></span>
+                        <span class="image"><img src="../server/images/1.jpg" alt="Profile Image" /></span>
                         <span>
                           <span>Khu Ngai</span>
                           <span class="time">3 phút trước</span>
@@ -179,18 +185,18 @@
     </div>
 
     <!-- jQuery -->
-    <script src="server/Others/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="../server/Others/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-   <script src="server/Others/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="../server/Others/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- FastClick -->
-    <script src="server/Others/vendors/fastclick/lib/fastclick.js"></script>
+    <script src="../server/Others/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="server/Others/vendors/nprogress/nprogress.js"></script>
+    <script src="../server/Others/vendors/nprogress/nprogress.js"></script>
     <!-- Dropzone.js -->
-    <script src="server/Others/vendors/dropzone/dist/min/dropzone.min.js"></script>
+    <script src="../server/Others/vendors/dropzone/dist/min/dropzone.min.js"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="server/JS/custom.min.js"></script>
+    <script src="../server/JS/custom.min.js"></script>
   </body>
 </html>
 

@@ -44,5 +44,26 @@ class CategoryController1 extends Controller
         Session::put('message', 'Kích hoạt danh mục thành công.');
         return Redirect::to('all-category1');
     }
+
+    public function edit_category($category_id){
+        $edit_category = DB::table('tbl_category1')->where('category_id', $category_id)->get();
+        $manager_category = view('admin.category1.edit_category')->with('edit_category', $edit_category);
+        return view('admin_layout1')->with('admin.category1.edit_category', $manager_category);
+    }
+
+    public function update_category(Request $request, $category_id){
+        $data = array();
+        $data['category_name'] = $request->category_name;
+        $data['description'] = $request->description;
+        DB::table('tbl_category1')->where('category_id', $category_id)->update($data);
+        Session::put('message', 'Cập nhật danh mục thành công.');
+        return Redirect::to('all-category1');
+    }
+
+    public function delete_category($category_id){
+        DB::table('tbl_category1')->where('category_id', $category_id)->delete();
+        Session::put('message', 'Xóa danh mục thành công.');
+        return Redirect::to('all-category1');
+    }
 }
 /* End Phượng */

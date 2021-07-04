@@ -15,7 +15,7 @@
 // Route::get('/', 'App\Http\Controllers\HomeController@index_1');
 Route::get('/trang-chu1', 'HomeController@index1');
 
-//Admin
+//Admin login
 Route::get('/admin1', 'AdminController@index1');
 Route::get('/dashboard1', 'AdminController@show_dashboard1');
 Route::post('/admin-dashboard1', 'AdminController@dashboard1');
@@ -27,6 +27,19 @@ Route::get('/all-category1', 'CategoryController1@all_category');
 Route::post('/save-category1', 'CategoryController1@save_category');
 Route::get('/active-category1/{category_id}', 'CategoryController1@unactive_category');
 Route::get('/unactive-category1/{category_id}', 'CategoryController1@active_category');
+Route::get('/edit-category1/{category_id}', 'CategoryController1@edit_category');
+Route::post('/update-category1/{category_id}', 'CategoryController1@update_category');
+Route::get('/delete-category1/{category_id}', 'CategoryController1@delete_category');
+
+//Location
+Route::get('/add-location1', 'LocationController1@add_location');
+Route::get('/all-location1', 'LocationController1@all_location');
+Route::post('/save-location1', 'LocationController1@save_location');
+Route::get('/active-location1/{location_id}', 'LocationController1@unactive_location');
+Route::get('/unactive-location1/{location_id}', 'LocationController1@active_location');
+Route::get('/edit-location1/{location_id}', 'LocationController1@edit_location');
+Route::post('/update-location1/{location_id}', 'LocationController1@update_location');
+Route::get('/delete-location1/{location_id}', 'LocationController1@delete_location');
 
 /* End Phượng */
 
