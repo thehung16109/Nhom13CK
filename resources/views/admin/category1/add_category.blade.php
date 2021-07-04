@@ -12,14 +12,13 @@
                         <label class="col-form-label col-md-3 col-sm-3  label-align">Tên danh mục<span
                                 class="required">*</span></label>
                         <div class="col-md-6 col-sm-6">
-                            <input class="form-control" name="category_name" required="required" />
+                            <input type="text" class="form-control" name="category_name" onkeyup="ChangeToSlug();" id="slug" required="required" />
                         </div>
                     </div>
                     <div class="field item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3  label-align">Mô tả</label>
+                        <label class="col-form-label col-md-3 col-sm-3  label-align">Slug</label>
                         <div class="col-md-6 col-sm-6">
-                            <textarea class="form-control" name="description" rows="6" cols="50" style="resize:none"
-                                required="required"></textarea>
+                            <input type="text" class="form-control" name="category_slug" id="convert_slug" required="required" />
                         </div>
                     </div>
                     <div class="field item form-group">
@@ -27,7 +26,7 @@
                         
                         <div class="col-md-6 col-sm-6">
                             <select name="status" class="form-control input-sm">
-                                <option value="1">Hiển thị</option>
+                                <option value="1" selected>Hiển thị</option>
                                 <option value="0">Ẩn</option>
                             </select>
                         </div>

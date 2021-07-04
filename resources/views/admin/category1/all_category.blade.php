@@ -83,18 +83,11 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-5 text-center">
-                        <small>Showing 20-30 of 50 items</small>
+                        <small>Hiển thị {!!$all_category->count()!!} danh mục trong số {!!$all_category->total()!!} danh mục</small>
                     </div>
                     <div class="col-sm-7 text-right text-center-xs">
                         <ul class="pagination justify-content-end">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only">Previous</span></a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span>
-                                    <span class="sr-only">Next</span></a>
-                            </li>
+                            {!!$all_category->links()!!}
                         </ul>
                     </div>
                 </div>

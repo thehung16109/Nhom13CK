@@ -30,6 +30,7 @@ Route::get('/unactive-category1/{category_id}', 'CategoryController1@active_cate
 Route::get('/edit-category1/{category_id}', 'CategoryController1@edit_category');
 Route::post('/update-category1/{category_id}', 'CategoryController1@update_category');
 Route::get('/delete-category1/{category_id}', 'CategoryController1@delete_category');
+Route::get('/{category_slug}', 'CategoryController1@get_category_slug');
 
 //Location
 Route::get('/add-location1', 'LocationController1@add_location');
@@ -40,6 +41,9 @@ Route::get('/unactive-location1/{location_id}', 'LocationController1@active_loca
 Route::get('/edit-location1/{location_id}', 'LocationController1@edit_location');
 Route::post('/update-location1/{location_id}', 'LocationController1@update_location');
 Route::get('/delete-location1/{location_id}', 'LocationController1@delete_location');
+
+//Review
+Route::get('/add-review1', 'App\Http\Controllers\ReviewController1@add_category');
 
 /* End Phượng */
 

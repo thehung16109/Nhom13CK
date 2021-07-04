@@ -15,7 +15,17 @@
                             <input class="form-control" name="location_name" required="required" />
                         </div>
                     </div>
-
+                    <div class="field item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Vùng miền</label>
+                        
+                        <div class="col-md-6 col-sm-6">
+                            <select name="region" class="form-control input-sm">
+                                <option value="Miền Bắc">Miền Bắc</option>
+                                <option value="Miền Trung">Miền Trung</option>
+                                <option value="Miền Nam">Miền Nam</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="field item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align">Hiển thị</label>
                         

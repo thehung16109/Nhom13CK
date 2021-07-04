@@ -15,6 +15,27 @@
                             <input class="form-control" value="{{$edit_value->location_name}}" name="location_name" />
                         </div>
                     </div>
+                    <div class="field item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Vùng miền</label>
+                        
+                        <div class="col-md-6 col-sm-6">
+                            <select name="region" class="form-control input-sm">
+                                <?php if ($edit_value->region == "Miền Bắc") { ?>
+                                    <option value="Miền Bắc" selected>Miền Bắc</option>
+                                    <option value="Miền Trung">Miền Trung</option>
+                                    <option value="Miền Nam">Miền Nam</option>
+                                    <?php } elseif($edit_value->region == "Miền Trung") { ?>
+                                        <option value="Miền Trung" selected>Miền Trung</option>
+                                        <option value="Miền Bắc">Miền Bắc</option>
+                                        <option value="Miền Nam">Miền Nam</option>
+                                    <?php } else {?>
+                                        <option value="Miền Nam" selected>Miền Nam</option>
+                                        <option value="Miền Bắc">Miền Bắc</option>
+                                        <option value="Miền Trung">Miền Trung</option>
+                                    <?php } ?>
+                            </select>
+                        </div>
+                    </div>
                     <div class="col-md-6 offset-md-3">
                         <button type="submit" name="update_location" class="btn btn-primary">Cập nhật</button>
                     </div>

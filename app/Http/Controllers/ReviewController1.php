@@ -1,5 +1,5 @@
 <?php
-/* Phượng */
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -7,11 +7,11 @@ use DB;
 use App\Http\Requests;
 use Session;
 use Illuminate\Support\Facades\Redirect;
-// use App\Category1;
+use App\Category1;
 
 session_start();
 
-class CategoryController1 extends Controller
+class ReviewController1 extends Controller
 {
     public function add_category(){
         $this->AuthLogin1();
@@ -100,4 +100,3 @@ class CategoryController1 extends Controller
         }
     }
 }
-/* End Phượng */

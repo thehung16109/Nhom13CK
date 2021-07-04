@@ -49,6 +49,7 @@
                                 </th>
                                 <th>STT</th>
                                 <th>Tên địa điểm</th>
+                                <th>Vùng miền</th>
                                 <th>Trạng thái</th>
                                 <th style="width:65px;"></th>
                             </tr>
@@ -63,6 +64,7 @@
                                     </td>
                                     <td>{{ $location->location_id }}</td>
                                     <td>{{ $location->location_name }}</td>
+                                    <td>{{ $location->region }}</td>
                                     <td>
                                         <?php if ($location->status == 0) { ?>
                                         <a href="{{URL::to('/unactive-location1/'.$location->location_id)}}"><span class="fa-eye-slash-style fa fa-eye-slash"></span></a>

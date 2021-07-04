@@ -36,6 +36,7 @@ class AdminController extends Controller
     }
 
     public function show_dashboard1(){
+        $this->AuthLogin1();
         return view('admin.dashboard1');
     }
 
@@ -57,9 +58,19 @@ class AdminController extends Controller
     }
 
     public function logout1(){
+        $this->AuthLogin1();
         Session::put('admin_name', null);
         Session::put('admin_id', null);
         return Redirect::to('/admin1');
+    }
+
+    public function AuthLogin1(){
+        $admin_id = Session::get('admin_id');
+        if($admin_id) {
+            return Redirect::to('dashboard1');
+        } else {
+            return Redirect::to('admin1')->send();
+        }
     }
     /* End Phượng */
 

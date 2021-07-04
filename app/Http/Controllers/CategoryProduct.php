@@ -20,22 +20,7 @@ session_start();
 
 class CategoryProduct extends Controller
 {
-     public function AuthLogin(){
-        
-        if(Session::get('login_normal')){
 
-            $admin_id = Session::get('admin_id');
-        }else{
-            $admin_id = Auth::id();
-        }
-            if($admin_id){
-                return Redirect::to('dashboard');
-            }else{
-                return Redirect::to('admin')->send();
-            } 
-        
-       
-    }
     public function arrange_category(Request $request){
 
         $this->AuthLogin();
