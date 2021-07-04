@@ -44,7 +44,7 @@ Route::get('/delete-location1/{location_id}', 'LocationController1@delete_locati
 
 //Review
 Route::get('/add-review1', 'ReviewController1@add_review');
-
+Route::post('/save-review1', 'ReviewController1@save_review');
 /* End Phượng */
 
 

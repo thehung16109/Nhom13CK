@@ -20,6 +20,21 @@ class ReviewController1 extends Controller
         return view('admin.review1.add_review')->with(compact('category'));
     }
 
+    public function save_review(Request $request){
+        $this->AuthLogin1();
+
+        $data = $request->all();
+        $review = new Review1();
+        $review->review_title = $data['review_title'];
+        $review->review_slug = $data['review_slug'];
+        $review->review_desc = $data['review_desc'];
+        $review->review_content = $data['review_content'];
+        $review->status = $data['status'];
+        $category->save();
+        Session::put('message', 'Thêm danh mục thành công.');
+        return redirect()->back();
+    }
+
     // public function all_category(){
     //     $this->AuthLogin1();
         
@@ -27,21 +42,6 @@ class ReviewController1 extends Controller
 
     //     return view('admin.review1.add_review')->with(compact('category'));
     // }
-
-    // public function save_category(Request $request){
-    //     // $this->AuthLogin1();
-
-    //     $data = $request->all();
-    //     $category = new Category1();
-    //     $category->category_name = $data['category_name'];
-    //     $category->category_slug = $data['category_slug'];
-    //     $category->status = $data['status'];
-    //     $category->save();
-
-    //     Session::put('message', 'Thêm danh mục thành công.');
-    //     return redirect()->back();
-    // }
-
     // public function unactive_category($category_id){
     //     // $this->AuthLogin1();
     //     $category = Category1::find($category_id);
