@@ -10,6 +10,29 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+/* Phượng */
+//Client
+// Route::get('/', 'App\Http\Controllers\HomeController@index_1');
+Route::get('/trang-chu1', 'App\Http\Controllers\HomeController@index_1');
+
+//Admin
+Route::get('/admin1', 'App\Http\Controllers\AdminControlle1@index1');
+Route::get('/dashboard1', 'App\Http\Controllers\AdminController@show_dashboard_1');
+Route::post('/admin-dashboard1', 'App\Http\Controllers\AdminController@dashboard_1');
+Route::get('/logout1', 'App\Http\Controllers\AdminController@logout1');
+
+//Category
+Route::get('/add-category1', 'App\Http\Controllers\CategoryController@add_category_1');
+Route::get('/all-category1', 'App\Http\Controllers\CategoryController@all_category_1');
+Route::post('/save-category1', 'App\Http\Controllers\CategoryController@save_category_1');
+Route::get('/active-category1/{category_id}', 'App\Http\Controllers\CategoryController@unactive_category_1');
+Route::get('/unactive-category1/{category_id}', 'App\Http\Controllers\CategoryController@active_category_1');
+/* End Phượng */
+
+
+
+
+
 //Change languge 
 Route::get('lang/{locale}', function($locale){
 	if (! in_array($locale, ['en', 'vi', 'cn'])) {
