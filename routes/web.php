@@ -45,6 +45,10 @@ Route::get('/delete-location1/{location_id}', 'LocationController1@delete_locati
 //Review
 Route::get('/add-review1', 'ReviewController1@add_review');
 Route::post('/save-review1', 'ReviewController1@save_review');
+Route::get('/all-review1', 'ReviewController1@all_review');
+Route::get('/active-review1/{review_id}', 'ReviewController1@unactive_review');
+Route::get('/unactive-review1/{review_id}', 'ReviewController1@active_review');
+Route::get('/delete-review1/{review_id}', 'ReviewController1@delete_review');
 /* End Phượng */
 
 
