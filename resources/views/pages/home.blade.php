@@ -1,124 +1,226 @@
-@extends('layout')
+<!-- Phượng -->
+@extends('pages_layout')
+@section('trangchu')
 
-@section('slider')
-  @include('pages.include.slider')
-@endsection
-
-@section('sidebar')
-  @include('pages.include.sidebar')
-@endsection
-
-@section('content')
-<div class="features_items"><!--features_items-->
-
-                    <div class="category-tab"><!--category-tabádasd-->
-                        <div class="col-sm-12">
-                            <ul class="nav nav-tabs">
-                                @php 
-                                    $i = 0;
-                                @endphp
-                               
-
-                                @foreach($cate_pro_tabs as $key => $cat_tab)
-                                    @php 
-                                    $i++;
-                                    @endphp
-                                <li class="tabs_pro {{$i==1 ? 'active' : ''}}" data-id="{{$cat_tab->category_id}}"><a href="#tshirt" data-toggle="tab">{{$cat_tab->category_name}}</a></li>
-
-                                @endforeach
-
-                            </ul>
+<section class="carousel mt-5">
+    <div class="container px-0">
+        <div class="row container px-0 mx-0">
+            <div class="col-md-6 col-lg-6 col-xl-6 carousel-left item p-0 ">
+                <img src="/client/images/CardHomestay/1.jpeg" alt="">
+                <div class="carousel-overlay1">
+                    <h6 class="p-0">HomeStay miền bắc</h6>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-6 carousel-right">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-xl-6 item p-0">
+                        <img src="/client/images/carousel/105625437_1120271368359451_2399958823443664218_n-357x210.jpeg"
+                            alt="">
+                        <div class="carousel-overlay">
+                            <h6 class="p-0">HomeStay miền nam</h6>
                         </div>
-
-                        <div id="tabs_product"></div>
-
                     </div>
+                    <div class="col-md-6 col-lg-6 col-xl-6 item p-0 ">
+                        <img src="/client/images/carousel/2-16482-357x210.jpeg" alt="">
+                        <div class="carousel-overlay">
+                            <h6 class="p-0">HomeStay miền trung</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-xl-6 item p-0">
+                        <img src="/client/images/carousel/aa-16204-357x210.jpeg" alt="">
+                        <div class="carousel-overlay">
+                            <h6 class="p-0">HomeStay</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-6 item p-0 ">
+                        <img src="/client/images/carousel/159512764_1342217616135054_2705855460809883874_n-357x210.jpeg"
+                            alt="">
+                        <div class="carousel-overlay">
+                            <h6 class="p-0">Khách sạn</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<section class="list-most-view-post pt-4">
+    <div class="container px-0">
+        <div class="tag-heading">
+            <a href="">NHIỀU NGƯỜI QUAN TÂM</a>
+        </div>
 
-                        <h2 class="title text-center">Sản phẩm mới nhất</h2>
+        <div class="row mt-3">
+            <div class="col-md-4 col-lg-4 col-xl-4">
+                <a href="">
+                    <img class="myimg" src="/client/images/Trangchu/1.jpg" alt="">
+                </a>
+                <a class="titleimg mt-5" href="">Khám phá khu du lịch hồ Đồng Đò Sóc Sơn đang hot gần đây!</a>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xl-4">
+                <a href="">
+                    <img class="myimg" src="/client/images/Trangchu/2.jpg" alt="">
+                </a>
+                <a class="titleimg mt-5" href="">Phát hiện một “Phượng Hoàng Cổ Trấn” ở Đà Lạt cực hot!</a>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xl-4">
+                <a href="">
+                    <img class="myimg" src="/client/images/Trangchu/3.jpg" alt="">
+                </a>
+                <a class="titleimg mt-5" href="">Bỏ túi nghiệm du lịch Hà Giang đầy đủ nhất năm 2020! </a>
+            </div>
+        </div>
 
-                        <div id="all_product"></div>    
-                            
-                        <div id="cart_session"></div>
-                        
+        <div class="row mt-2">
+            <div class="col-md-4 col-lg-4 col-xl-4">
+                <a href="">
+                    <img class="myimg" src="/client/images/Trangchu/4.jpg" alt="">
+                </a>
+                <a class="titleimg mt-5" href="">Du lịch Tam Đảo vào mùa đông! Tại sao không?</a>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xl-4">
+                <a href="">
+                    <img class="myimg" src="/client/images/Trangchu/5.jpg" alt="">
+                </a>
+                <a class="titleimg mt-5" href="">Du Già Hà Giang, bạn đã ghé tới đây bao giờ chưa?</a>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xl-4">
+                <a href="">
+                    <img class="myimg" src="/client/images/Trangchu/6.jpg" alt="">
+                </a>
+                <a class="titleimg mt-5" href="">Những điểm check-in Tam Đảo nhất định phải ghé 1 lần!</a>
+            </div>
+        </div>
 
-                    </div><!--features_items-->
-                     <!-- Modal xem nhanh-->
-                            <div class="modal fade" id="xemnhanh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                              <div class="modal-dialog modal-lg"  role="document">
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <h5 class="modal-title product_quickview_title" id="">
+        <div class="row mt-2">
+            <div class="col-md-4 col-lg-4 col-xl-4">
+                <a href="">
+                    <img class="myimg" src="/client/images/Trangchu/7.jpg" alt="">
+                </a>
+                <a class="titleimg mt-5" href="">Khám phá Đồng Văn Hà Giang qua 13 điểm check-in cực hot!</a>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xl-4">
+                <a href="">
+                    <img class="myimg" src="/client/images/Trangchu/8.jpg" alt="">
+                </a>
+                <a class="titleimg mt-5" href="">Review Du lịch Phú Quốc mới nhất 2020!</a>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xl-4">
+                <a href="">
+                    <img class="myimg" src="/client/images/Trangchu/9.jpg" alt="">
+                </a>
+                <a class="titleimg mt-5" href="">Gợi ý lịch trình Du lịch Hà Giang cho dân phượt</a>
+            </div>
+        </div>
+    </div>
+</section>
 
-                                                        <span id="product_quickview_title"></span>
-                                                        
-                                                    </h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                      <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                  </div>
-                                                  <div class="modal-body">
-                                                    <style type="text/css">
-                                                        span#product_quickview_content img {
-                                                            width: 100%;
-                                                        }
+<section class="list-popular-post mt-5">
+    <div class="container">
+        <div class="tag-heading">
+            <a href="">BÀI VIẾT ĐANG NỔI</a>
+        </div>
 
-                                                        @media screen and (min-width: 768px) {
-                                                            .modal-dialog {
-                                                              width: 700px; /* New width for default modal */
-                                                            }
-                                                            .modal-sm {
-                                                              width: 350px; /* New width for small modal */
-                                                            }
-                                                        }
-                                                        
-                                                        @media screen and (min-width: 992px) {
-                                                            .modal-lg {
-                                                              width: 1200px; /* New width for large modal */
-                                                            }
-                                                        }
-                                                    </style>
-                                                    <div class="row">
-                                                        <div class="col-md-5">
-                                                            <span id="product_quickview_image"></span>
-                                                            <span id="product_quickview_gallery"></span>
-                                                        </div>
-                                                        <form>
-                                                            @csrf
-                                                            <div id="product_quickview_value"></div>
-                                                        <div class="col-md-7">
-                                                            <h2><span id="product_quickview_title"></span></h2>
-                                                            <p>Mã ID: <span id="product_quickview_id"></span></p>
-                                                            <p style="font-size: 20px; color: brown;font-weight: bold;">Giá sản phẩm : <span id="product_quickview_price"></span></p>
-                                
-                                                                <label>Số lượng:</label>
+        <div class="row mt-3">
+            <div class="col-md-3 col-lg-3 col-xl-3">
+                <div class="row">
+                    <a href="">
+                        <img class="myimg" src="/client/images/Trangchu/10.jpeg" alt="">
+                    </a>
+                    <a class="titleimg mt-1" href="">Ghé Ecofarm Gia Trịnh Ba Vì Trải Nghiệm Du Lịch…</a>
+                </div>
+                <div class="row mt-2">
+                    <a href="">
+                        <img class="myimg" src="/client/images/Trangchu/11.jpeg" alt="">
+                    </a>
+                    <a class="titleimg mt-1" href="">Phát Hiện Một Homestay Phú Quốc Có Rooftop Ngắm…</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-6">
+                <div class="mt-5">
+                    <a href="">
+                        <img class="myimg1" src="/client/images/Trangchu/14.jpeg" alt="">
+                    </a>
+                    <a class="titleimg mt-2" href="">Top 10 Homestay Hạ Long Gần Biển Giá Tốt!</a>
+                </div>
+                <!-- <div class="mt-2">
+                    
+                </div> -->
+                
+                
+            </div>
+            <div class="col-md-3 col-lg-3 col-xl-3">
+                <div class="row">
+                    <a href="">
+                        <img class="myimg" src="/client/images/Trangchu/12.jpg" alt="">
+                    </a>
+                    <a class="titleimg mt-1" href="">Khám Phá The Kadupul Homecation Đà Lạt Chỉ Từ…
+                    </a>
+                </div>
+                <div class="row mt-2">
+                    <a href="">
+                        <img class="myimg" src="/client/images/Trangchu/13.png" alt="">
+                    </a>
+                    <a class="titleimg mt-1" href="">Ecosy Homestay Ba Vì – Biệt Thự Kiểu Âu Sang…</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-                                                                <input name="qty" type="number" min="1" class="cart_product_qty_"  value="1" />
-                                                             
-                                                            </span>
-                                                            <h4 style="font-size: 20px; color: brown;font-weight: bold;">Mô tả sản phẩm</h4>
-                                                            <hr>
-                                                            <p><span id="product_quickview_desc"></span></p>
-                                                            <p><span id="product_quickview_content"></span></p>
-                                                            
-                                                            <div id="product_quickview_button"></div>
-                                                            <div id="beforesend_quickview"></div>
-                                                        </div>
-                                                        </form>
+<section class="list-lastest-post mt-5">
+    <div class="container px-0">
+        <div class="tag-heading">
+            <a href="">BÀI VIẾT MỚI NHẤT</a>
+        </div>
 
-                                                    </div>
-                                                   
-                                                  </div>
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                                                    <button type="button" class="btn btn-default redirect-cart">Đi tới giỏ hàng</button>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div> 
-                     {{--  <ul class="pagination pagination-sm m-t-none m-b-none">
-                       {!!$all_product->links()!!}
-                      </ul> --}}
-        <!--/recommended_items-->
+        <div class="row mt-3">
+            <div class="col-md-4 col-lg-4 col-xl-4">
+                <a href="">
+                    <img class="myimg" src="/client/images/Lastest post/1.jpg" alt="">
+                </a>
+                <a class="titleimg mt-5" href="">Villa Tại Resort Đại Lải – Tam Đảo Đẳng Cấp 5 Sang Chảnh</a>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xl-4">
+                <a href="">
+                    <img class="myimg" src="/client/images/Lastest post/2.jpg" alt="">
+                </a>
+                <a class="titleimg mt-5" href="">Hygge House Homestay Hà Nội – Khu Nhà Gỗ Độc Đáo Trong “Rừng”</a>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xl-4">
+                <a href="">
+                    <img class="myimg" src="/client/images/Lastest post/3.jpg" alt="">
+                </a>
+                <a class="titleimg mt-5" href="">Homestay Ninh Bình Lý Tưởng Có View Vừa Đẹp, Vừa Rẻ</a>
+            </div>
+        </div>
 
+        <div class="row mt-2">
+            <div class="col-md-4 col-lg-4 col-xl-4">
+                <a href="">
+                    <img class="myimg" src="/client/images/Lastest post/4.jpg" alt="">
+                </a>
+                <a class="titleimg mt-5" href="">Homestay Tam Đảo “Giá Rẻ”, Làm Việc Thiếu Chuyên Nghiệp!</a>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xl-4">
+                <a href="">
+                    <img class="myimg" src="/client/images/Lastest post/5.jpg" alt="">
+                </a>
+                <a class="titleimg mt-5" href="">Stella Mộc Châu – Homestay Sắc Màu</a>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xl-4">
+                <a href="">
+                    <img class="myimg" src="/client/images/Lastest post/6.jpg" alt="">
+                </a>
+                <a class="titleimg mt-5" href="">Mèo’s House Đà Lạt – Căn Biệt Thự Đặt Biệt Dành Cho “Team Con
+                    Sen”</a>
+            </div>
+        </div>
+    </div>
+</section>
 @endsection
+
+<!-- End Phượng -->
